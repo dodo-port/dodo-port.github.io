@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김도윤 | 국방 항공SW · AI 연구</title>
+<meta name="description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자. 강화학습, 다중 UAV 경로계획, 임무계획 자동화.">
+<meta name="author" content="김도윤 (Kim Do-Yoon)">
+<link rel="canonical" href="https://dodo-port.github.io/">
+<!-- Open Graph (카톡·링크 공유 시 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="김도윤 | 국방 항공SW · AI 연구">
+<meta property="og:description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자. 강화학습, 다중 UAV 경로계획, 임무계획 자동화.">
+<meta property="og:url" content="https://dodo-port.github.io/">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="김도윤 | 국방 항공SW · AI 연구">
+<meta name="twitter:description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0f16;
+    --bg2:#11151f;
+    --line:#252e40;
+    --line2:#323c52;
+    --text:#e6ebf3;
+    --text-dim:#a7b0c2;
+    --text-faint:#7b8597;
+    --head:#f7f9fc;
+    --accent:#5ad4b4;
+    --accent-soft:rgba(90,212,180,.10);
+  }
+  html{background:#0c0f16 !important; color-scheme:dark; scroll-behavior:smooth;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#0c0f16 !important;
+    color:var(--text);
+    font-family:'Noto Sans KR','Space Grotesk',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .grid-bg{position:fixed;inset:0;z-index:0;
+    background-image:linear-gradient(rgba(90,212,180,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(90,212,180,.022) 1px,transparent 1px);
+    background-size:42px 42px;pointer-events:none;}
+
+  /* ===== 상단 고정 네비 ===== */
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(12,15,22,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);}
+  .topnav-inner{max-width:820px;margin:0 auto;padding:0 26px;display:flex;justify-content:space-between;align-items:center;height:56px;}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--head);letter-spacing:.01em;}
+  .brand .r{color:var(--accent);}
+  .navlinks{display:flex;gap:2px;}
+  .navlinks a{font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-size:13.5px;color:var(--text-faint);
+    text-decoration:none;padding:7px 11px;border-radius:6px;transition:color .15s,background .15s;}
+  .navlinks a:hover{color:var(--accent);background:var(--accent-soft);}
+
+  .container{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 26px;}
+
+  /* ===== HERO ===== */
+  .hero{padding:70px 0 20px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;}
+  h1{font-size:clamp(32px,6.5vw,50px);font-weight:700;line-height:1.04;letter-spacing:-.02em;color:#f7f9fc;}
+  .rank{color:var(--accent);}
+  .name-en{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;color:var(--text-dim);margin-top:10px;}
+  .greeting{font-size:clamp(17px,2.3vw,21px);color:var(--text);font-weight:400;line-height:1.6;max-width:620px;margin:26px 0 0;}
+  .greeting .hl{color:var(--accent);font-weight:500;}
+  .affil{font-size:14.5px;color:var(--text-faint);margin-top:22px;line-height:1.7;}
+  .scrollcue{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);margin-top:40px;letter-spacing:.05em;}
+
+  /* ===== SECTION ===== */
+  section{padding:56px 0;border-top:1px solid var(--line);scroll-margin-top:66px;}
+  .sec-head{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px;}
+
+  /* research interests */
+  .interests{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .interest{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:22px;}
+  .interest .ic{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);
+    border:1px solid var(--accent);border-radius:6px;padding:4px 9px;background:var(--accent-soft);display:inline-block;margin-bottom:14px;}
+  .interest h3{font-size:16px;color:var(--head);font-weight:600;margin-bottom:7px;}
+  .interest p{font-size:13.5px;color:var(--text-dim);line-height:1.65;}
+
+  /* publications */
+  .pub{padding:18px 0;border-bottom:1px solid var(--line);}
+  .pub:last-child{border-bottom:none;}
+  .pub .pt{font-size:15.5px;color:var(--head);font-weight:500;line-height:1.5;}
+  .pub .authors{font-size:13px;color:var(--text-dim);margin-top:6px;line-height:1.5;}
+  .pub .pm{font-size:12.5px;color:var(--text-faint);margin-top:5px;font-family:'JetBrains Mono',monospace;}
+  .pub .me{font-weight:600;color:var(--accent);}
+  .pub .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
+    padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);}
+  .pub .badge.rev{background:var(--bg2);color:var(--text-dim);border-color:var(--line2);}
+
+  /* competitions */
+  .comp{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:13px;}
+  .comp:last-child{margin-bottom:0;}
+  .comp .cyr{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.04em;}
+  .comp h3{font-size:16px;color:var(--head);font-weight:600;margin:5px 0 4px;line-height:1.4;}
+  .comp .cm{font-size:13px;color:var(--text-dim);line-height:1.6;}
+  .comp .result{display:inline-block;margin-top:9px;font-size:12.5px;font-family:'JetBrains Mono',monospace;
+    color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent);border-radius:5px;padding:3px 10px;}
+
+  /* timeline */
+  .tl{position:relative;padding-left:24px;}
+  .tl::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:var(--line2);}
+  .tl-item{position:relative;padding:0 0 26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:9px;height:9px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);}
+  .tl-item .yr{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--accent);letter-spacing:.03em;}
+  .tl-item .ti{font-size:15.5px;color:var(--head);font-weight:500;margin-top:3px;}
+  .tl-item .de{font-size:13.5px;color:var(--text-dim);margin-top:4px;line-height:1.6;}
+  .subgrp{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-faint);
+    letter-spacing:.1em;text-transform:uppercase;margin:0 0 20px;}
+  .subgrp:not(:first-of-type){margin-top:44px;}
+
+  /* certifications */
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .cert{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px 18px;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .cert .cn{font-size:14.5px;color:var(--head);font-weight:500;}
+  .cert .cd{font-size:12px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+
+  /* contact */
+  .contact{display:flex;flex-wrap:wrap;gap:12px;}
+  .clink{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:13.5px;
+    color:var(--text-dim);text-decoration:none;padding:11px 17px;border:1px solid var(--line2);border-radius:8px;
+    background:var(--bg2);transition:all .18s;}
+  .clink:hover{color:var(--accent);border-color:var(--accent);}
+  .copyright{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-faint);
+    margin-top:40px;padding-bottom:56px;letter-spacing:.03em;}
+
+  @media(max-width:600px){
+    .interests,.cert-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<!-- ===== 상단 고정 네비 ===== -->
+<div class="topnav">
+  <div class="topnav-inner">
+    <div class="brand"><span class="r">Capt.</span> 김도윤</div>
+    <nav class="navlinks">
+      <a href="#research">Research</a>
+      <a href="#pub">Publications</a>
+      <a href="#comp">Competitions</a>
+      <a href="#career">Career</a>
+      <a href="#edu">Education</a>
+      <a href="#cert">Certs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== HERO ===== -->
+  <div class="hero">
+    <div class="eyebrow">Defense Aviation SW · AI Research</div>
+    <h1><span class="rank">공군 대위</span> 김도윤</h1>
+    <div class="name-en">Capt. Kim Do-Yoon</div>
+    <p class="greeting">안녕하세요. 국방 항공SW 분야에서 <span class="hl">강화학습</span>과 <span class="hl">다중 UAV 자율성</span>을 연구하는 김도윤입니다.</p>
+    <div class="affil">아주대학교 국방디지털융합학과 박사 수료 · 항공SW지원소</div>
+    <div class="scrollcue">↓ scroll</div>
+  </div>
+
+  <!-- ===== RESEARCH INTERESTS ===== -->
+  <section id="research">
+    <div class="sec-head">Research Interests</div>
+    <div class="interests">
+      <div class="interest">
+        <div class="ic">RL</div>
+        <h3>강화학습 · 다중 에이전트</h3>
+        <p>다중 UAV의 협력적 의사결정과 정책 학습, 적대적·협력적 멀티에이전트 환경에서의 강화학습.</p>
+      </div>
+      <div class="interest">
+        <div class="ic">UAV</div>
+        <h3>무인기 경로계획 · 자율성</h3>
+        <p>군사환경 적응형 다중 UAV 경로계획, GPS 음영·스푸핑 환경에서의 신뢰도 기반 자율 비행.</p>
+      </div>
+      <div class="interest">
+        <div class="ic">AI</div>
+        <h3>국방 AI · 임무계획</h3>
+        <p>AI 모델을 활용한 항공기 임무계획 보조, 공대지 무장 알고리즘에 적용 가능한 최신 AI 기법 연구.</p>
+      </div>
+      <div class="interest">
+        <div class="ic">DL</div>
+        <h3>딥러닝 · 시뮬레이션</h3>
+        <p>어텐션 메커니즘 기반 경로 시뮬레이션, LLM·빅데이터의 국방 도메인 적용.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section id="pub">
+    <div class="sec-head">Publications</div>
+
+    <div class="pub">
+      <div class="pt">시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정</div>
+      <div class="authors">장진섭, 심현철, 한동훈, 김상희, <span class="me">김도윤</span>, 임철희, 이상승</div>
+      <div class="pm">한국인터넷정보학회 추계학술발표대회 · 제26권 2호 · 2025</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">군사환경 적응형 다중 UAV 경로계획 시스템</div>
+      <div class="authors"><span class="me">김도윤</span>, 이동환, 박범근, 김상희, 박새찬, 장진섭, 이상승</div>
+      <div class="pm">한국인터넷정보학회 추계학술발표대회 · 제26권 2호 · 2025</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div>
+      <div class="authors"><span class="me">김도윤</span>, 박종후, 박상철</div>
+      <div class="pm">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026 · DOI 10.9709/JKSS.2026.35.1.079</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">WSN에서 중복 면적 최소화를 이용한 격자 맵 기반의 빅홀 자가복구 기법</div>
+      <div class="authors"><span class="me">김도윤</span>, 이민우, 임재성</div>
+      <div class="pm">한국통신학회논문지 · 46(10), 1658–1666 · 2021</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">K-RMF 내 애자일 SW개발모델 적용 제안</div>
+      <div class="authors"><span class="me">김도윤</span>, 박상철, 이명락</div>
+      <div class="pm">한국군사과학기술학회 추계학술대회 · 정보통신체계 부문 · 2024</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">WSN의 Big Hole 최소화를 위한 격자 맵 기반의 자가복구 기법</div>
+      <div class="authors"><span class="me">김도윤</span>, 이민우, 임재성</div>
+      <div class="pm">한국군사과학기술학회 종합학술대회 · 센서·신호처리 부문 · 2020</div>
+    </div>
+
+    <div class="pub">
+      <div class="pt">GPS 스푸핑 환경에서 신뢰도 기반 다중 UAV 협력 경로 계획<span class="badge rev">심사 중</span></div>
+      <div class="authors"><span class="me">김도윤</span> 외</div>
+      <div class="pm">KCI 국내저널 · 투고</div>
+    </div>
+  </section>
+
+  <!-- ===== COMPETITIONS ===== -->
+  <section id="comp">
+    <div class="sec-head">Competitions</div>
+
+    <div class="comp">
+      <div class="cyr">2026</div>
+      <h3>제2차 국방 AI 활용 아이디어 경연대회</h3>
+      <div class="cm">국방부 주최 · 정보통신기획평가원(IITP)·한국오픈소스협회(KOSSA) 주관<br>주제: AI를 활용한 신속·정확한 의사결정 지원방안</div>
+      <span class="result">본선(발표심사) 진출</span>
+    </div>
+
+    <div class="comp">
+      <div class="cyr">2026</div>
+      <h3>제6차 Future Makers Challenge</h3>
+      <div class="cm">공군본부 주관</div>
+      <span class="result">참가</span>
+    </div>
+    <!-- 새 대회는 위 .comp 블록 복사 -->
+  </section>
+
+  <!-- ===== CAREER ===== -->
+  <section id="career">
+    <div class="sec-head">Career</div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="yr">2026.01 – 06</div>
+        <div class="ti">항공무기체계 SW 학술연구 연구팀장</div>
+        <div class="de">AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2026</div>
+        <div class="ti">’26-1차 인공지능 역량강화 교육 교관</div>
+        <div class="de">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육 (군수사, 서산기지 대상)</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2025.11</div>
+        <div class="ti">’25년 항공소프트웨어·AI 세미나 주제발표</div>
+        <div class="de">공군군수사 항공SW지원소 주관 (11.18)<br>발표 주제: 환경 적응성 강화를 위한 강화학습 기반 UAV 경로계획 최적화 연구</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2025.01 – 06</div>
+        <div class="ti">항공무기체계 SW 학술연구 연구팀장</div>
+        <div class="de">공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="edu">
+    <div class="sec-head">Education</div>
+
+    <div class="subgrp">Academic</div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="yr">2026</div>
+        <div class="ti">아주대학교 국방디지털융합학과 박사 수료</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2021</div>
+        <div class="ti">아주대학교 국방디지털융합학과 학사</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2017</div>
+        <div class="ti">전북과학고등학교 졸업</div>
+      </div>
+    </div>
+
+    <div class="subgrp">Training</div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="yr">2025</div>
+        <div class="ti">군 특화 AI 과정 (AI/SW 프로젝트 과정)</div>
+        <div class="de">KAIST 주관</div>
+      </div>
+      <div class="tl-item">
+        <div class="yr">2020</div>
+        <div class="ti">해외파견 인공지능 과정 수료</div>
+        <div class="de">대만 Asia University</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="cert">
+    <div class="sec-head">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert"><span class="cn">정보처리기사</span><span class="cd">2020.12</span></div>
+      <div class="cert"><span class="cn">빅데이터분석기사</span><span class="cd">2021.12</span></div>
+      <div class="cert"><span class="cn">전자계산기조직응용기사</span><span class="cd">2022.06</span></div>
+      <div class="cert"><span class="cn">사무자동화산업기사</span><span class="cd">2022.09</span></div>
+      <div class="cert"><span class="cn">데이터분석 준전문가 (ADsP)</span><span class="cd">2025.06</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="sec-head">Contact</div>
+    <div class="contact">
+      <a class="clink" href="https://github.com/dodo-port" target="_blank" rel="noopener">GitHub</a>
+      <a class="clink" href="mailto:ksain980809@gmail.com">Email</a>
+      <!-- URL 확정되면 아래 주석을 풀고 href 를 채우세요 -->
+      <!-- <a class="clink" href="구글학술_프로필_URL" target="_blank" rel="noopener">Google Scholar</a> -->
+      <!-- <a class="clink" href="링크드인_프로필_URL" target="_blank" rel="noopener">LinkedIn</a> -->
+    </div>
+    <div class="copyright">© 2026 김도윤 (Kim Do-Yoon) · Defense Aviation SW & AI Research</div>
+  </section>
+
+</div>
+</body>
+</html>
