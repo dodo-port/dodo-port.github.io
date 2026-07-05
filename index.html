@@ -166,6 +166,7 @@
   .row .when{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text-faint);font-weight:500;padding-top:2px;}
   .row .head{font-size:15.5px;font-weight:600;letter-spacing:-.01em;line-height:1.4;}
   .row .desc{font-size:14px;color:var(--text-dim);margin-top:4px;line-height:1.6;}
+  .desc,.row .head,.pub .t,.pub .a,.pub .v,.bio,.interest p{text-wrap:pretty;}
   .row .pill{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;color:var(--accent);
     background:var(--accent-weak);border-radius:20px;padding:3px 11px;margin-top:9px;}
   .subgrp{font-family:'Space Grotesk',sans-serif;font-size:11.5px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin:0 0 6px;}
@@ -213,7 +214,6 @@
     <div class="brand">김도윤<span class="dot">.</span></div>
     <nav class="nav">
       <a href="#research">Research</a>
-      <a href="#demos">Demos</a>
       <a href="#pub">Publications</a>
       <a href="#talks">Talks</a>
       <a href="#awards">Awards</a>
@@ -269,8 +269,8 @@
     </div>
   </section>
 
-  <!-- ===== PROJECTS & DEMOS ===== -->
-  <section id="demos" class="reveal">
+  <!-- ===== PROJECTS & DEMOS (임시 숨김 — 영상 준비되면 아래 section의 hidden 속성 제거 + 네비에 Demos 링크 복원) ===== -->
+  <section id="demos" class="reveal" hidden>
     <div class="sec-label">Projects &amp; Demos</div>
     <div class="demos">
       <!--
@@ -306,7 +306,7 @@
     <div class="sec-label">Publications</div>
 
     <div class="subgrp">Journal Articles</div>
-    <div class="pub"><div class="n">J1</div><div><div class="t">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026 · DOI 10.9709/JKSS.2026.35.1.079</div></div></div>
+    <div class="pub"><div class="n">J1</div><div><div class="t">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026<br>DOI 10.9709/JKSS.2026.35.1.079</div></div></div>
     <div class="pub"><div class="n">J2</div><div><div class="t">WSN에서 중복 면적 최소화를 이용한 격자 맵 기반의 빅홀 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국통신학회논문지 · 46(10), 1658–1666 · 2021</div></div></div>
     <div class="pub"><div class="n">J3</div><div><div class="t">GPS 스푸핑 환경에서 신뢰도 기반 다중 UAV 협력 경로 계획<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span> 외</div><div class="v">KCI 국내저널 · 투고</div></div></div>
 
@@ -319,24 +319,35 @@
     <div class="summary">KCI급 국내저널 3건 (2건 게재, 1건 심사 중) · 국내 학술대회 4건</div>
   </section>
 
+  <section id="exp" class="reveal">
+    <div class="sec-label">Experience</div>
+    <div class="row"><div class="when">2026</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">최우수연구상</span></div><div class="desc">상반기 · AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구</div></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">’26-1차 인공지능 역량강화 교육 교관</div><div class="desc">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육<br>(군수사, 서산기지 대상)</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">우수연구상</span></div><div class="desc">상반기 · 공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석</div></div></div>
+  </section>
+
+  <!-- ===== AWARDS ===== -->
+  <section id="awards" class="reveal">
+    <div class="sec-label">Awards &amp; Honors</div>
+    <div class="row"><div class="when">2026</div><div><div class="head">최우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">인공지능 역량강화 교육 우수상</div><div class="desc">’25-1차 인공지능 역량강화 교육 과정 · 공군 항공SW지원소</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">KAIST 총장상</div><div class="desc">군 특화 AI 과정 (AI/SW 프로젝트 과정) 최우수 이수 · KAIST 주관</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상<br>「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
+    <div class="row"><div class="when">2024</div><div><div class="head">항공SW 전문교육 우수교관상</div><div class="desc">’24년 항공SW 전문교육 · 공군 항공SW지원소</div></div></div>
+  </section>
+
   <!-- ===== TALKS ===== -->
   <section id="talks" class="reveal">
     <div class="sec-label">Talks &amp; Presentations</div>
-    <div class="row"><div class="when">2026</div><div><div class="head">AI 기반 지능형 항공임무 계획 시스템 연구<span class="badge">예정</span></div><div class="desc">2026.07 · 항공우주무기체계 기술발전 컨퍼런스 2026 · 대전 DCC · 공군 등 5개 기관 공동주최</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">환경 적응성 강화를 위한 강화학습 기반 UAV 경로계획 최적화 연구</div><div class="desc">2025.11 · 항공소프트웨어·AI 세미나 · 공군군수사 항공SW지원소 주관</div></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">항공우주무기체계 기술발전 컨퍼런스 2026<span class="badge">예정</span></div><div class="desc">「AI 기반 지능형 항공임무 계획 시스템 연구」 발표<br>2026.07 · 대전 DCC · 공군 등 5개 기관 공동주최</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">’25년 항공소프트웨어·AI 세미나</div><div class="desc">「환경 적응성 강화를 위한 강화학습 기반 UAV 경로계획 최적화 연구」 발표<br>2025.11 · 공군군수사 항공SW지원소 주관</div></div></div>
   </section>
 
   <section id="comp" class="reveal">
     <div class="sec-label">Competitions</div>
-    <div class="row"><div class="when">2026</div><div><div class="head">제2차 국방 AI 활용 아이디어 경연대회</div><div class="desc">국방부 주최 · 정보통신기획평가원(IITP)·한국오픈소스협회(KOSSA) 주관 · 주제: AI를 활용한 신속·정확한 의사결정 지원방안</div><span class="pill">본선(발표심사) 진출</span></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">제2차 국방 AI 활용 아이디어 경연대회</div><div class="desc">국방부 주최 · 정보통신기획평가원(IITP)·한국오픈소스협회(KOSSA) 주관<br>주제: AI를 활용한 신속·정확한 의사결정 지원방안</div><span class="pill">본선(발표심사) 진출</span></div></div>
     <div class="row"><div class="when">2026</div><div><div class="head">제6차 Future Makers Challenge</div><div class="desc">공군본부 주관</div><span class="pill">참가</span></div></div>
-  </section>
-
-  <section id="exp" class="reveal">
-    <div class="sec-label">Experience</div>
-    <div class="row"><div class="when">2026</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">최우수연구상</span></div><div class="desc">상반기 · AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구</div></div></div>
-    <div class="row"><div class="when">2026</div><div><div class="head">’26-1차 인공지능 역량강화 교육 교관</div><div class="desc">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육 (군수사, 서산기지 대상)</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">우수연구상</span></div><div class="desc">상반기 · 공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석</div></div></div>
   </section>
 
   <section id="edu" class="reveal">
@@ -349,17 +360,6 @@
     <div class="row"><div class="when">2025</div><div><div class="head">군 특화 AI 과정 (AI/SW 프로젝트 과정)<span class="badge award">최우수 · KAIST 총장상</span></div><div class="desc">KAIST 주관</div></div></div>
     <div class="row"><div class="when">2022</div><div><div class="head">머신러닝과 딥러닝의 이해와 활용</div><div class="desc">멀티캠퍼스 주관 · 2022.07.04–06 이수</div></div></div>
     <div class="row"><div class="when">2020</div><div><div class="head">해외파견 인공지능 과정 수료</div><div class="desc">대만 Asia University</div></div></div>
-  </section>
-
-  <!-- ===== AWARDS ===== -->
-  <section id="awards" class="reveal">
-    <div class="sec-label">Awards &amp; Honors</div>
-    <div class="row"><div class="when">2026</div><div><div class="head">최우수연구상</div><div class="desc">항공무기체계 SW 학술연구 · AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">인공지능 역량강화 교육 우수상</div><div class="desc">’25-1차 인공지능 역량강화 교육 과정 · 공군 항공SW지원소</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">KAIST 총장상</div><div class="desc">군 특화 AI 과정 (AI/SW 프로젝트 과정) 최우수 이수 · KAIST 주관</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상 · 「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">우수연구상</div><div class="desc">항공무기체계 SW 학술연구 · 공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
-    <div class="row"><div class="when">2024</div><div><div class="head">항공SW 전문교육 우수교관상</div><div class="desc">’24년 항공SW 전문교육 · 공군 항공SW지원소</div></div></div>
   </section>
 
   <section id="cert" class="reveal">
