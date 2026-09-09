@@ -57,11 +57,11 @@
   .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 80%,transparent);
     backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
   .topbar-in{max-width:800px;margin:0 auto;padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em;}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em;white-space:nowrap;flex:none;}
   .brand .dot{color:var(--accent);}
   .nav{display:flex;gap:2px;align-items:center;}
-  .nav a{position:relative;font-size:13.5px;color:var(--text-faint);text-decoration:none;padding:7px 12px;border-radius:7px;
-    transition:color .18s;font-weight:500;}
+  .nav a{position:relative;font-size:13px;color:var(--text-faint);text-decoration:none;padding:7px 9px;border-radius:7px;
+    transition:color .18s;font-weight:500;white-space:nowrap;}
   .nav a:hover{color:var(--text);}
   .nav a.active{color:var(--accent);}
   .nav a.active::after{content:'';position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--accent);border-radius:2px;}
@@ -197,7 +197,7 @@
   .rcards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .rcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;}
   .rcard:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow);}
-  .rcard .media{aspect-ratio:16/10;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .rcard .media{aspect-ratio:16/10;background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:10px;}
   .rcard .media img{width:100%;height:100%;object-fit:contain;display:block;}
   .rcard .meta{padding:18px 20px;}
   .rcard .rtag{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--accent);background:var(--accent-weak);border-radius:6px;padding:3px 9px;margin-bottom:10px;}
@@ -213,7 +213,11 @@
   .gitem .cap b{color:var(--text);font-weight:600;display:block;font-size:13.5px;margin-bottom:2px;}
 
   @media(max-width:640px){
-    .nav a:not(.active){display:none;}
+    .topbar-in{gap:10px;}
+    .brand{flex:none;}
+    .nav{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .nav::-webkit-scrollbar{display:none;}
+    .nav a{padding:7px 8px;font-size:12.5px;white-space:nowrap;}
     .hero-in{grid-template-columns:1fr;gap:22px;}
     .avatar{width:104px;height:104px;}
     .interests{grid-template-columns:1fr;}
@@ -243,9 +247,10 @@
       <a href="#research">Research</a>
       <a href="#activities">Activities</a>
       <a href="#pub">Publications</a>
-      <a href="#talks">Talks</a>
-      <a href="#awards">Awards</a>
       <a href="#exp">Experience</a>
+      <a href="#awards">Awards</a>
+      <a href="#talks">Talks</a>
+      <a href="#comp">Competitions</a>
       <a href="#contact">Contact</a>
       <button class="themebtn" id="themeBtn" aria-label="다크/라이트 전환" title="다크/라이트 전환">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -304,12 +309,12 @@
     </div>
   </section>
 
-  <!-- ===== PROJECTS & DEMOS (임시 숨김 — 영상 준비되면 아래 section의 hidden 속성 제거 + 네비에 Demos 링크 복원) ===== -->
+  <!-- ===== PROJECTS & DEMOS (임시 숨김. 영상 준비되면 아래 section의 hidden 속성 제거 + 네비에 Demos 링크 복원) ===== -->
   <section id="demos" class="reveal" hidden>
     <div class="sec-label">Projects &amp; Demos</div>
     <div class="demos">
       <!--
-        영상 카드 사용법 (카드 하나 = <div class="demo">) — 복사해서 늘리면 됩니다.
+        영상 카드 사용법 (카드 하나 = <div class="demo">), 복사해서 늘리면 됩니다.
         · YouTube(권장): .vid 안의 <iframe> 주석을 풀고 VIDEO_ID 만 교체, 아래 .ph 는 지우기
           예) <iframe src="https://www.youtube.com/embed/abc123" title="데모" allowfullscreen loading="lazy"></iframe>
         · 직접 올린 mp4(짧은 클립): <video controls preload="metadata" src="videos/demo1.mp4"></video>
@@ -320,19 +325,19 @@
           <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="데모 영상" allowfullscreen loading="lazy"></iframe> -->
           <div class="ph">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.2"/><path d="M10 8.4l6 3.6-6 3.6z" fill="currentColor" stroke="none"/></svg>
-            영상 자리 — 제작하신 데모 링크를 넣어주세요
+            영상 자리: 제작하신 데모 링크를 넣어주세요
           </div>
         </div>
-        <div class="meta"><h3>프로젝트 제목</h3><p>한 줄 설명 — 무엇을, 어떻게, 어떤 결과.</p></div>
+        <div class="meta"><h3>프로젝트 제목</h3><p>한 줄 설명: 무엇을, 어떻게, 어떤 결과.</p></div>
       </div>
       <div class="demo">
         <div class="vid">
           <div class="ph">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9.2"/><path d="M10 8.4l6 3.6-6 3.6z" fill="currentColor" stroke="none"/></svg>
-            영상 자리 — 제작하신 데모 링크를 넣어주세요
+            영상 자리: 제작하신 데모 링크를 넣어주세요
           </div>
         </div>
-        <div class="meta"><h3>프로젝트 제목</h3><p>한 줄 설명 — 무엇을, 어떻게, 어떤 결과.</p></div>
+        <div class="meta"><h3>프로젝트 제목</h3><p>한 줄 설명: 무엇을, 어떻게, 어떤 결과.</p></div>
       </div>
     </div>
   </section>
@@ -350,7 +355,7 @@
     <div class="pub mini"><div class="n">C3</div><div><div class="t">K-RMF 내 애자일 SW개발모델 적용 제안</div><div class="a"><span class="me">김도윤</span>, 박상철, 이명락</div><div class="v">한국군사과학기술학회 추계학술대회 · 2024</div></div></div>
     <div class="pub mini"><div class="n">C4</div><div><div class="t">WSN의 Big Hole 최소화를 위한 격자 맵 기반의 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국군사과학기술학회 종합학술대회 · 2020</div></div></div>
 
-    <div class="summary">KCI급 국내저널 2건 게재 · 국내 학술대회 4건</div>
+    <div class="summary">KCI 등재지 2건 게재 · 국내 학술대회 4건</div>
   </section>
 
   <section id="exp" class="reveal">
@@ -365,7 +370,7 @@
     <div class="sec-label">Research Awards</div>
     <div class="row"><div class="when">2026</div><div><div class="head">최우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">KAIST 총장상</div><div class="desc">군 특화 AI 과정 (AI/SW 프로젝트 과정) 최우수 이수 · KAIST 주관</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상<br>「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상<br>「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」<br>공동연구(공저)</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
   </section>
 
@@ -468,13 +473,14 @@
     function onScroll(){
       var y=window.scrollY+120,cur=null;
       map.forEach(function(m){if(m.el.offsetTop<=y)cur=m;});
+      if(!cur && map.length)cur=map[0];
       links.forEach(function(a){a.classList.remove('active');});
       if(cur)cur.a.classList.add('active');
     }
     window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   })();
 
-  /* UAV swarm hero animation — cursor-interactive (센싱·회피·깊이감) */
+  /* UAV swarm hero animation, cursor-interactive (센싱·회피·깊이감) */
   (function(){
     if(reduce)return;
     var cv=document.getElementById('swarm'),ctx=cv.getContext('2d'),W,H,DPR=Math.min(window.devicePixelRatio||1,2),nodes=[];
