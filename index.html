@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>김도윤 | 국방 항공SW · AI 연구</title>
-<meta name="description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자. 강화학습, 다중 UAV 경로계획, 임무계획 자동화.">
+<title>김도윤 | 강화학습 · 다중 UAV 연구</title>
+<meta name="description" content="공군 대위 김도윤. 강화학습과 다중 UAV 자율성 연구. UAV 경로계획, AI 기반 임무계획, 정밀농업 탐색.">
 <meta name="author" content="김도윤 (Kim Do-Yoon)">
 <link rel="canonical" href="https://dodo-port.github.io/">
 <meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
-<meta property="og:title" content="김도윤 | 국방 항공SW · AI 연구">
-<meta property="og:description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자. 강화학습, 다중 UAV 경로계획, 임무계획 자동화.">
+<meta property="og:title" content="김도윤 | 강화학습 · 다중 UAV 연구">
+<meta property="og:description" content="공군 대위 김도윤. 강화학습과 다중 UAV 자율성 연구. UAV 경로계획, AI 기반 임무계획, 정밀농업 탐색.">
 <meta property="og:url" content="https://dodo-port.github.io/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="김도윤 | 국방 항공SW · AI 연구">
-<meta name="twitter:description" content="공군 대위 김도윤 — 국방 항공SW 분야 AI 연구자.">
+<meta name="twitter:title" content="김도윤 | 강화학습 · 다중 UAV 연구">
+<meta name="twitter:description" content="공군 대위 김도윤. 강화학습과 다중 UAV 자율성 연구.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -193,11 +193,32 @@
   .cbtn svg{width:17px;height:17px;}
   .foot{font-size:12.5px;color:var(--text-faint);margin-top:22px;padding-bottom:64px;}
 
+  /* research cards (그림 포함) */
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s;}
+  .rcard:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow);}
+  .rcard .media{aspect-ratio:16/10;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .rcard .media img{width:100%;height:100%;object-fit:contain;display:block;}
+  .rcard .meta{padding:18px 20px;}
+  .rcard .rtag{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--accent);background:var(--accent-weak);border-radius:6px;padding:3px 9px;margin-bottom:10px;}
+  .rcard h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px;}
+  .rcard p{font-size:13.5px;color:var(--text-dim);line-height:1.6;}
+
+  /* activity gallery */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .gitem{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);transition:border-color .25s,transform .25s;}
+  .gitem:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .gitem img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid var(--line);}
+  .gitem .cap{padding:12px 15px;font-size:13px;color:var(--text-dim);}
+  .gitem .cap b{color:var(--text);font-weight:600;display:block;font-size:13.5px;margin-bottom:2px;}
+
   @media(max-width:640px){
     .nav a:not(.active){display:none;}
     .hero-in{grid-template-columns:1fr;gap:22px;}
     .avatar{width:104px;height:104px;}
     .interests{grid-template-columns:1fr;}
+    .rcards{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:1fr;}
     .demos{grid-template-columns:1fr;}
     .row{grid-template-columns:1fr;gap:5px;}
     #swarm{height:340px;}
@@ -220,6 +241,7 @@
     <div class="brand">김도윤<span class="dot">.</span></div>
     <nav class="nav">
       <a href="#research">Research</a>
+      <a href="#activities">Activities</a>
       <a href="#pub">Publications</a>
       <a href="#talks">Talks</a>
       <a href="#awards">Awards</a>
@@ -243,13 +265,12 @@
         <span class="ph">DK</span>
       </div>
       <div>
-        <div class="eyebrow anim a1">Defense Aviation SW · AI Research</div>
+        <div class="eyebrow anim a1">Reinforcement Learning · Multi-UAV Autonomy</div>
         <h1 class="anim a2"><span class="rank">공군 대위 · Ph.D. Candidate</span>김도윤</h1>
         <div class="name-en anim a2">Kim Do-Yoon</div>
-        <p class="bio anim a3">안녕하세요. 국방 항공소프트웨어 분야에서 <span class="hl">강화학습</span>과 <span class="hl">다중 UAV 자율성</span>을 연구하는 공군 장교이자 박사과정 연구자입니다. 여러 대의 무인기가 서로 협력해 스스로 길을 찾고, 통신이 불안정하거나 GPS를 믿기 어려운 상황에서도 임무를 완수하도록 만드는 문제에 관심이 많습니다. 복잡한 문제를 작은 원리로 쪼개어 시뮬레이션으로 검증하는 과정을 좋아합니다.</p>
+        <p class="bio anim a3">안녕하세요. <span class="hl">강화학습</span>과 <span class="hl">다중 UAV 자율성</span>을 연구하는 공군 장교이자 박사과정 연구자입니다. 여러 대의 무인기가 서로 협력해 스스로 경로를 찾고, 통신이나 위치 정보가 불안정한 상황에서도 임무를 이어가도록 만드는 문제에 관심이 많습니다. 다중 UAV 경로계획, AI 기반 임무계획, 정밀농업 탐색까지 강화학습을 여러 문제에 적용하며, 복잡한 문제를 작은 원리로 쪼개어 시뮬레이션으로 검증하는 과정을 좋아합니다.</p>
         <div class="affil anim a4">
-          <b>Ph.D. Candidate</b> · 아주대학교 국방디지털융합학과<br>
-          <b>Developer</b> · 공군 항공SW지원소
+          <b>Ph.D. Candidate</b> · 아주대학교 국방디지털융합학과
         </div>
         <div class="icons anim a5">
           <a class="icon" href="mailto:ksain980809@gmail.com" aria-label="Email" title="Email">
@@ -266,12 +287,20 @@
   </header>
 
   <section id="research" class="reveal">
-    <div class="sec-label">Research Interests</div>
-    <div class="interests">
-      <div class="interest"><span class="tag">RL</span><h3>강화학습 · 다중 에이전트</h3><p>다중 UAV의 협력적 의사결정과 정책 학습, 적대적·협력적 멀티에이전트 환경에서의 강화학습.</p></div>
-      <div class="interest"><span class="tag">UAV</span><h3>무인기 경로계획 · 자율성</h3><p>군사환경 적응형 다중 UAV 경로계획, GPS 음영·스푸핑 환경에서의 신뢰도 기반 자율 비행.</p></div>
-      <div class="interest"><span class="tag">AI</span><h3>국방 AI · 임무계획</h3><p>AI 모델을 활용한 항공기 임무계획 보조, 공대지 무장 알고리즘에 적용 가능한 최신 AI 기법 연구.</p></div>
-      <div class="interest"><span class="tag">DL</span><h3>딥러닝 · 시뮬레이션</h3><p>어텐션 메커니즘 기반 경로 시뮬레이션, LLM·빅데이터의 국방 도메인 적용.</p></div>
+    <div class="sec-label">Research</div>
+    <div class="rcards">
+      <div class="rcard"><div class="media"><img src="assets/research/kmpl.gif" alt="다중 UAV 밀집 항법 시연" loading="lazy"></div><div class="meta"><span class="rtag">경로계획 · 자율성</span><h3>다중 UAV 밀집 항법</h3><p>선회율이 제한된 여러 UAV가 밀집한 장애물 사이를 협력해 빠져나가는 경로를 학습한다.</p></div></div>
+      <div class="rcard"><div class="media"><img src="assets/research/imps.jpg" alt="AI 기반 항공임무 계획" loading="lazy"></div><div class="meta"><span class="rtag">국방 AI · 임무계획</span><h3>AI 기반 항공임무 계획</h3><p>자연어 임무에서 자산 배정과 위협 회피 경로를 지도 위에 세우고(IMPS), 돌발 결함 시 출격 자원 재배정 방책까지 빠르게 산출한다(ATO-ACCEL).</p></div></div>
+      <div class="rcard"><div class="media"><img src="assets/research/ms.jpg" alt="정밀농업 UAV 탐색 경로" loading="lazy"></div><div class="meta"><span class="rtag">강화학습 · 딥러닝</span><h3>정밀농업 UAV 탐색</h3><p>어텐션과 강화학습으로 넓은 지역을 효율적으로 살피는 UAV 탐색 경로를 학습한다.</p></div></div>
+      <div class="rcard"><div class="media"><img src="assets/research/kaist.gif" alt="군집 UAV 동적 클러스터링 시연" loading="lazy"></div><div class="meta"><span class="rtag">다중 에이전트</span><h3>군집 UAV 동적 클러스터링</h3><p>여러 UAV가 실시간으로 무리를 나누며 위협을 피해 함께 움직이도록 학습한다.</p></div></div>
+    </div>
+  </section>
+
+  <section id="activities" class="reveal">
+    <div class="sec-label">Activities</div>
+    <div class="gallery">
+      <div class="gitem"><img src="assets/activity/talk_conf2026.jpg" alt="항공우주무기체계 기술발전 컨퍼런스 2026 발표" loading="lazy"><div class="cap"><b>항공우주무기체계 기술발전 컨퍼런스 2026</b>「AI 기반 지능형 항공임무 계획 시스템 연구」 발표 · 2026.07</div></div>
+      <div class="gitem"><img src="assets/activity/talk_forum2025.jpg" alt="2025 국방 AI 생태계 발전 포럼 성과발표" loading="lazy"><div class="cap"><b>2025 국방 AI 생태계 발전 포럼</b>강화학습 기반 UAV 경로계획 최적화 연구 성과발표 · 2025</div></div>
     </div>
   </section>
 
@@ -314,7 +343,6 @@
     <div class="subgrp">Journal Articles</div>
     <div class="pub"><div class="n">J1</div><div><div class="t">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026<br>DOI 10.9709/JKSS.2026.35.1.079</div></div></div>
     <div class="pub"><div class="n">J2</div><div><div class="t">WSN에서 중복 면적 최소화를 이용한 격자 맵 기반의 빅홀 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국통신학회논문지 · 46(10), 1658–1666 · 2021</div></div></div>
-    <div class="pub"><div class="n">J3</div><div><div class="t">GPS 스푸핑 환경에서 신뢰도 기반 다중 UAV 협력 경로 계획<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span> 외</div><div class="v">KCI 국내저널 · 투고</div></div></div>
 
     <div class="subgrp">Conference Presentations</div>
     <div class="pub mini"><div class="n">C1</div><div><div class="t">시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정<span class="badge award">최우수논문상</span></div><div class="a">장진섭, 심현철, 한동훈, 김상희, <span class="me">김도윤</span>, 임철희, 이상승</div><div class="v">한국인터넷정보학회 추계학술발표대회 · 2025</div></div></div>
@@ -322,13 +350,13 @@
     <div class="pub mini"><div class="n">C3</div><div><div class="t">K-RMF 내 애자일 SW개발모델 적용 제안</div><div class="a"><span class="me">김도윤</span>, 박상철, 이명락</div><div class="v">한국군사과학기술학회 추계학술대회 · 2024</div></div></div>
     <div class="pub mini"><div class="n">C4</div><div><div class="t">WSN의 Big Hole 최소화를 위한 격자 맵 기반의 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국군사과학기술학회 종합학술대회 · 2020</div></div></div>
 
-    <div class="summary">KCI급 국내저널 3건 (2건 게재, 1건 심사 중) · 국내 학술대회 4건</div>
+    <div class="summary">KCI급 국내저널 2건 게재 · 국내 학술대회 4건</div>
   </section>
 
   <section id="exp" class="reveal">
     <div class="sec-label">Experience</div>
     <div class="row"><div class="when">2026</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">최우수연구상</span></div><div class="desc">상반기 · AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구</div></div></div>
-    <div class="row"><div class="when">2026</div><div><div class="head">’26-1차 인공지능 역량강화 교육 교관</div><div class="desc">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육<br>(군수사, 서산기지 대상)</div></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">인공지능 역량강화 교육 교관</div><div class="desc">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육<br>(군수사, 서산기지 대상)</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">우수연구상</span></div><div class="desc">상반기 · 공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석</div></div></div>
   </section>
 
@@ -336,11 +364,9 @@
   <section id="awards" class="reveal">
     <div class="sec-label">Awards &amp; Honors</div>
     <div class="row"><div class="when">2026</div><div><div class="head">최우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">인공지능 역량강화 교육 우수상</div><div class="desc">’25-1차 인공지능 역량강화 교육 과정 · 공군 항공SW지원소</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">KAIST 총장상</div><div class="desc">군 특화 AI 과정 (AI/SW 프로젝트 과정) 최우수 이수 · KAIST 주관</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상<br>「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
-    <div class="row"><div class="when">2024</div><div><div class="head">항공SW 전문교육 우수교관상</div><div class="desc">’24년 항공SW 전문교육 · 공군 항공SW지원소</div></div></div>
   </section>
 
   <!-- ===== TALKS ===== -->
@@ -363,7 +389,8 @@
         <a class="rlink" href="https://youtu.be/B9IvDbeuuik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>시스템 시연</a>
       </div>
       <div class="note">* 본 자료는 모두 인터넷에 공개된 데이터로만 작성된 자료입니다.</div></div></div>
-    <div class="row"><div class="when">2026</div><div><div class="head">제6차 Future Makers Challenge 공모전</div><div class="desc">공군본부 주관 · 공군 군수사령관상 수여</div><span class="pill">우수상</span></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">제6차 Future Makers Challenge 공모전</div><div class="desc">주제: AI 기반 활주로 위협요소 통합 안전운영 플랫폼 구축</div><span class="pill">우수상</span></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">서산 시민 혁신 아이디어 공모전</div><div class="desc">주제: 기상예보·AI 기반 침수 위험 예측 히트맵 「서산 침수 안심지도」 구축</div><span class="pill">우수상</span></div></div>
   </section>
 
   <section id="edu" class="reveal">
