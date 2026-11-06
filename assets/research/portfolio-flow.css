@@ -89,3 +89,8 @@ a,button,summary{touch-action:manipulation}
 
 /* Research media lives once, within the research section. */
 .hero-in{grid-template-columns:minmax(0,1fr)}.hero .bio{max-width:37ch;font-size:clamp(21px,2.5vw,32px)}.hero{padding-block:65px 70px}.research-entry>video.research-visual{aspect-ratio:16/9;object-fit:contain;background:#0d1422}
+
+.motion-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:#0d1422}
+.motion-frame>video.research-visual{display:block;width:100%;height:100%;object-fit:contain;background:#0d1422}
+.motion-frame>.motion-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0d1422;border-radius:inherit;pointer-events:none}
+.research-film>.motion-frame{border-radius:0}
