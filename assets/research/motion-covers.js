@@ -49,6 +49,7 @@
     video.addEventListener('canplay',update);
     video.addEventListener('play',()=>{if(!active(video)||fallback.has(video))video.pause();});
     video.addEventListener('error',()=>useFallback(video));
+    if(video.dataset.previewImage === 'true')useFallback(video);
   });
   if('IntersectionObserver' in window){
     const observer=new IntersectionObserver(entries=>{
