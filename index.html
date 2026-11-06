@@ -66,7 +66,7 @@
   .nav a.active{color:var(--accent);}
   .nav a.active::after{content:'';position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--accent);border-radius:2px;}
   .themebtn{margin-left:8px;width:36px;height:36px;border:1px solid var(--line2);border-radius:9px;background:var(--card);
-    color:var(--text-dim);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:all .2s;}
+    color:var(--text-dim);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:color .2s,background .2s,border-color .2s,transform .2s;}
   .themebtn:hover{color:var(--accent);border-color:var(--accent);transform:rotate(-15deg);}
   .themebtn svg{width:17px;height:17px;}
   .themebtn .moon{display:none;} [data-theme="dark"] .themebtn .sun{display:none;} [data-theme="dark"] .themebtn .moon{display:block;}
@@ -94,7 +94,7 @@
   .affil b{color:var(--text-dim);font-weight:600;}
   .icons{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
   .icon{width:40px;height:40px;border:1px solid var(--line2);border-radius:11px;background:var(--card);color:var(--text-dim);
-    display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:all .2s;}
+    display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:color .2s,background .2s,border-color .2s,transform .2s;}
   .icon:hover{color:#fff;background:var(--accent);border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow);}
   .icon svg{width:18px;height:18px;}
 
@@ -171,7 +171,7 @@
     background:var(--accent-weak);border-radius:20px;padding:3px 11px;margin-top:9px;}
   .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;}
   .rlink{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--accent);text-decoration:none;
-    border:1px solid var(--line2);border-radius:8px;padding:5px 11px;background:var(--card);transition:all .18s;}
+    border:1px solid var(--line2);border-radius:8px;padding:5px 11px;background:var(--card);transition:color .18s,background .18s,border-color .18s;}
   .rlink:hover{color:#fff;background:var(--accent);border-color:var(--accent);}
   .rlink svg{width:13px;height:13px;flex:none;}
   .note{font-size:11.5px;color:var(--text-faint);margin-top:9px;font-style:italic;line-height:1.5;}
@@ -188,7 +188,7 @@
   /* contact */
   .contact-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px;}
   .cbtn{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--text);text-decoration:none;
-    border:1px solid var(--line2);border-radius:12px;padding:11px 18px;background:var(--card);transition:all .2s;}
+    border:1px solid var(--line2);border-radius:12px;padding:11px 18px;background:var(--card);transition:color .2s,background .2s,border-color .2s,transform .2s;}
   .cbtn:hover{color:#fff;background:var(--accent);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow);}
   .cbtn svg{width:17px;height:17px;}
   .foot{font-size:12.5px;color:var(--text-faint);margin-top:22px;padding-bottom:64px;}
@@ -236,80 +236,207 @@
     .spotlight{display:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* Portfolio preview */
+  :root{--bg:#f9f8f4;--bg2:#efeee9;--card:#fffefa;--text:#162032;--text-dim:#465265;--text-faint:#566378;--line:#e2e3df;--line2:#d4d8dc;--accent:#244bc7;}
+  [data-theme="dark"]{--bg:#101521;--bg2:#181f2d;--card:#181f2d;--text:#edf1fa;--text-dim:#bac5d8;--text-faint:#a2aec5;--line:#293345;--line2:#37445a;--accent:#9ab4ff;}
+  .topbar-in,.wrap{max-width:1216px;padding-inline:clamp(20px,4vw,58px);}
+  .topbar-in{height:68px;gap:12px;}
+  .brand{font-family:'Space Grotesk','Noto Sans KR',sans-serif;text-decoration:none;font-size:19px;font-weight:700;}
+  .nav{margin-left:auto;overflow:visible;gap:4px;}
+  .nav a,.nav-more summary{font-size:14px;}
+  .nav-more{position:relative;}
+  .nav-more summary{list-style:none;cursor:pointer;color:var(--text-dim);padding:9px 10px;border-radius:7px;white-space:nowrap;}
+  .nav-more summary::-webkit-details-marker{display:none;}
+  .nav-more summary::after{content:'⌄';margin-left:7px;}
+  .nav-more summary:focus-visible{outline:2px solid var(--accent);}
+  .nav-more > div{position:absolute;top:calc(100% + 8px);right:0;display:grid;min-width:150px;padding:7px;border:1px solid var(--line2);border-radius:12px;background:var(--card);box-shadow:var(--shadow);}
+  .nav-more a{padding:9px 12px;}
+  .themebtn{margin-left:0;flex:none;}
+  .hero{padding:clamp(38px,6vw,88px) 0 clamp(38px,5vw,72px);}
+  .hero-in{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,72px);}
+  .hero .eyebrow{margin-bottom:16px;letter-spacing:.08em;}
+  .hero h1{font-size:clamp(47px,6.1vw,88px);letter-spacing:-.08em;line-height:1.08;}
+  .name-en{font-size:16px;margin-top:10px;letter-spacing:.03em;}
+  .hero .bio{font-size:clamp(19px,2.05vw,29px);font-weight:700;color:var(--text);letter-spacing:-.045em;line-height:1.53;margin-top:24px;word-break:keep-all;}
+  .hero .affil{margin-top:12px;word-break:keep-all;}
+  .hero-actions,.work-links{display:flex;flex-wrap:wrap;gap:10px;}
+  .hero-actions{margin-top:25px;}
+  .action{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border:1px solid var(--line2);border-radius:9px;font-size:14px;font-weight:700;text-decoration:none;background:var(--card);color:var(--text);}
+  .action:hover{border-color:var(--accent);color:var(--accent);}
+  .action.primary{color:white;background:#244bc7;border-color:#244bc7;}
+  .action.primary:hover{background:#1838a0;}
+  .hero-art{position:relative;isolation:isolate;overflow:hidden;min-width:0;border-radius:20px;background:#121e39;color:#dae6ff;border:1px solid #31446a;box-shadow:0 17px 36px rgba(15,30,62,.17);}
+  .hero-art svg{display:block;width:100%;height:auto;}
+  .hero-art #swarm{inset:0;width:100%;height:100%;mask-image:none;-webkit-mask-image:none;opacity:.46;}
+  .hero-art .art-label{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #36486b;padding:11px 16px;font-size:11px;color:#c4d4f5;letter-spacing:.08em;position:relative;}
+  .section-head{margin-bottom:25px;}
+  .section-head .sec-label{margin-bottom:8px;}
+  .section-head h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.055em;line-height:1.2;}
+  .rcards{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .rcard.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:stretch;}
+  .rcard .media{background:#fff;}
+  .rcard.featured .media{border-bottom:0;border-right:1px solid var(--line);aspect-ratio:16/9;}
+  .rcard.featured .meta{padding:clamp(20px,4vw,38px);align-self:center;}
+  .rcard.featured h3{font-size:clamp(23px,3vw,31px);line-height:1.25;letter-spacing:-.055em;}
+  .rcard.featured p{font-size:15px;}
+  .rcard .work-links{margin-top:14px;}
+  .work-links a{font-size:13px;color:var(--accent);font-weight:700;text-underline-offset:4px;padding-block:5px;}
+  .feature-no{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.09em;color:var(--accent);font-weight:700;margin-bottom:12px;}
+  .reveal{opacity:1;transform:none;}
+  @media(max-width:760px){
+    .topbar-in{height:60px;gap:6px;}
+    .nav{gap:0;}
+    .nav a,.nav-more summary{font-size:13px;padding-inline:7px;}
+    .nav .desktop-nav{display:none;}
+    .hero-in,.rcard.featured{grid-template-columns:minmax(0,1fr);}
+    .hero .bio{margin-top:17px;}
+    .hero-actions{margin-top:20px;}
+    .hero-art svg{max-height:242px;}
+    .rcards{grid-template-columns:minmax(0,1fr);}
+    .rcard.featured .media{border-right:0;border-bottom:1px solid var(--line);}
+  }
+
+  /* Homepage layout with motion previews */
+  .hero{padding:clamp(34px,5.5vw,78px) 0 clamp(34px,5vw,64px);}
+  .hero-in{grid-template-columns:minmax(0,.86fr) minmax(0,1.28fr);gap:clamp(30px,4.2vw,64px);}
+  .hero h1{font-size:clamp(46px,6.4vw,86px);}
+  .hero .bio{font-size:clamp(19px,1.8vw,25px);}
+  .preview-group{min-width:0;}
+  .preview-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 12px;margin-bottom:12px;}
+  .preview-heading h2{font-size:17px;letter-spacing:-.035em;}
+  .motion-toggle{font:inherit;font-size:12px;font-weight:600;padding:6px 10px;border:1px solid var(--line2);border-radius:7px;background:var(--card);color:var(--text-dim);cursor:pointer;min-height:34px;}
+  .motion-toggle:hover{color:var(--accent);border-color:var(--accent);}
+  .preview-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .preview-card{display:grid;grid-template-rows:auto 1fr;min-width:0;background:#131e34;color:#f3f7ff;border:1px solid #304264;border-radius:15px;overflow:hidden;text-decoration:none;box-shadow:0 12px 30px rgba(18,31,57,.14);transition:transform .2s,border-color .2s;}
+  .preview-card:hover{transform:translateY(-3px);border-color:#7598e8;}
+  .preview-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#0c1420;pointer-events:none;}
+  .preview-caption{display:flex;flex-direction:column;gap:4px;padding:13px 13px 14px;border-top:1px solid #334565;}
+  .preview-caption strong{font-size:clamp(13px,1.28vw,17px);font-weight:700;line-height:1.4;word-break:keep-all;}
+  .preview-caption span{font-size:12px;color:#b8ccf0;line-height:1.45;word-break:keep-all;}
+  .preview-caption small{font-size:11px;color:#a4beff;font-weight:700;margin-top:4px;}
+  .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+  .research-entry{display:flex;flex-direction:column;gap:8px;padding:clamp(17px,3vw,27px);background:var(--card);border:1px solid var(--line);border-radius:14px;}
+  .research-entry h3{font-size:clamp(19px,2.1vw,25px);line-height:1.3;letter-spacing:-.045em;word-break:keep-all;}
+  .research-entry p,.section-head > p:last-child{color:var(--text-dim);font-size:14px;word-break:keep-all;}
+  .section-head > p:last-child{margin-top:9px;}
+  .research-kind{font-size:12px;color:var(--accent);font-weight:700;}
+  .research-entry .work-links{margin-top:auto;padding-top:6px;}
+  .research-entry a,.pub .v a{color:var(--accent);font-weight:700;text-underline-offset:3px;}
+  .pub[id]{scroll-margin-top:84px;}
+  .pub:target{background:var(--accent-weak);border-radius:8px;}
+  @media(max-width:760px){
+    .hero-in{grid-template-columns:minmax(0,1fr);gap:26px;}
+    .preview-cards{gap:8px;}
+    .preview-caption{padding:9px;}
+    .research-grid{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .preview-card{transition:none;}
+    .preview-card:hover{transform:none;}
+  }
 </style>
+<link rel="stylesheet" href="assets/research/portfolio-flow.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+<div class="reading-progress" aria-hidden="true"><i></i></div>
 <div class="spotlight" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="topbar">
   <div class="topbar-in">
-    <div class="brand">김도윤<span class="dot">.</span></div>
-    <nav class="nav">
-      <a href="#research">Research</a>
-      <a href="#activities">Activities</a>
-      <a href="#pub">Publications</a>
-      <a href="#exp">Experience</a>
-      <a href="#awards">Awards</a>
-      <a href="#talks">Talks</a>
-      <a href="#comp">Competitions</a>
-      <a href="#contact">Contact</a>
+    <a class="brand" href="#top">김도윤<span class="dot">.</span></a>
+    <nav class="nav" aria-label="주 메뉴">
+      <a href="#research">연구</a>
+      <a href="#pub">논문</a>
+      <a class="desktop-nav" href="#exp">경력</a>
+      <a class="desktop-nav" href="#contact">연락처</a>
+      <details class="nav-more">
+        <summary>메뉴</summary>
+        <div>
+          <a href="#activities">활동</a><a href="#exp">경력</a><a href="#awards">수상</a>
+          <a href="#talks">발표</a><a href="#comp">공모전</a><a href="#edu">학력</a>
+          <a href="#cert">자격</a><a href="#contact">연락처</a>
+        </div>
+      </details>
+    </nav>
       <button class="themebtn" id="themeBtn" aria-label="다크/라이트 전환" title="다크/라이트 전환">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
       </button>
-    </nav>
   </div>
 </div>
 
-<div class="wrap">
-  <header class="hero">
-    <canvas id="swarm"></canvas>
+<main class="wrap" id="main-content" tabindex="-1">
+  <header class="hero" id="top">
     <div class="hero-in">
-      <!-- 프로필 사진: profile.jpg 를 저장소에 올린 뒤 아래 <img> 주석을 풀고 .ph 를 지우세요 -->
-      <div class="avatar">
-        <!-- <img src="profile.jpg" alt="김도윤 프로필 사진"> -->
-        <span class="ph">DK</span>
-      </div>
       <div>
-        <div class="eyebrow anim a1">Reinforcement Learning · Multi-UAV Autonomy</div>
-        <h1 class="anim a2"><span class="rank">공군 대위 · Ph.D. Candidate</span>김도윤</h1>
-        <div class="name-en anim a2">Kim Do-Yoon</div>
-        <p class="bio anim a3">안녕하세요. <span class="hl">강화학습</span>과 <span class="hl">다중 UAV 자율성</span>을 연구하는 공군 장교이자 박사과정 연구자입니다. 여러 대의 무인기가 서로 협력해 스스로 경로를 찾고, 통신이나 위치 정보가 불안정한 상황에서도 임무를 이어가도록 만드는 문제에 관심이 많습니다. 다중 UAV 경로계획, AI 기반 임무계획, 정밀농업 탐색까지 강화학습을 여러 문제에 적용하며, 복잡한 문제를 작은 원리로 쪼개어 시뮬레이션으로 검증하는 과정을 좋아합니다.</p>
-        <div class="affil anim a4">
-          <b>Ph.D. Candidate</b> · 아주대학교 국방디지털융합학과
-        </div>
-        <div class="icons anim a5">
-          <a class="icon" href="mailto:ksain980809@gmail.com" aria-label="Email" title="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-          <a class="icon" href="https://github.com/dodo-port" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
-          <!-- Scholar / LinkedIn: URL 확정되면 주석 해제
-          <a class="icon" href="구글학술_URL" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.5L12 21l7-4.32v-3.5L12 17l-7-3.82z"/></svg></a>
-          <a class="icon" href="링크드인_URL" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0zM3.4 8.5h3.1V21H3.4zM9.2 8.5h2.97v1.71h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.66c0-1.35-.02-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.98V21H9.2z"/></svg></a>
-          -->
+
+        <h1>김도윤</h1>
+        <p class="name-en">Kim Do-Yoon</p>
+        <p class="bio">무인기의 자율 탐색과 경로계획, 복잡한 임무의 의사결정을 돕는 AI를 연구합니다.</p>
+        <p class="affil">공군 대위 · 아주대학교 국방디지털융합학과 박사과정</p>
+        <div class="hero-actions">
+          <a class="action primary" href="#research">연구 전체 보기</a>
+          <a class="action" href="#pub">논문 목록</a>
         </div>
       </div>
     </div>
   </header>
 
-  <section id="research" class="reveal">
-    <div class="sec-label">Research</div>
-    <div class="rcards">
-      <div class="rcard"><div class="media"><img src="assets/research/kmpl.gif" alt="다중 UAV 밀집 항법 시연" loading="lazy"></div><div class="meta"><span class="rtag">경로계획 · 자율성</span><h3>다중 UAV 밀집 항법</h3><p>선회율이 제한된 여러 UAV가 밀집한 장애물 사이를 협력해 빠져나가는 경로를 학습한다.</p></div></div>
-      <div class="rcard"><div class="media"><img src="assets/research/imps.jpg" alt="AI 기반 항공임무 계획" loading="lazy"></div><div class="meta"><span class="rtag">국방 AI · 임무계획</span><h3>AI 기반 항공임무 계획</h3><p>자연어 임무에서 자산 배정과 위협 회피 경로를 지도 위에 세우고(IMPS), 돌발 결함 시 출격 자원 재배정 방책까지 빠르게 산출한다(ATO-ACCEL).</p></div></div>
-      <div class="rcard"><div class="media"><img src="assets/research/ms.jpg" alt="정밀농업 UAV 탐색 경로" loading="lazy"></div><div class="meta"><span class="rtag">강화학습 · 딥러닝</span><h3>정밀농업 UAV 탐색</h3><p>어텐션과 강화학습으로 넓은 지역을 효율적으로 살피는 UAV 탐색 경로를 학습한다.</p></div></div>
-      <div class="rcard"><div class="media"><img src="assets/research/kaist.gif" alt="군집 UAV 동적 클러스터링 시연" loading="lazy"></div><div class="meta"><span class="rtag">다중 에이전트</span><h3>군집 UAV 동적 클러스터링</h3><p>여러 UAV가 실시간으로 무리를 나누며 위협을 피해 함께 움직이도록 학습한다.</p></div></div>
+  <section id="research">
+    <div class="section-head"><h2>연구를 <br>직접 살펴보세요.</h2><p>궤적을 돌려보고, 추적 결과를 비교하고, 그 결과를 만든 연구를 읽어보세요.</p><button class="motion-toggle research-motion-toggle" type="button" data-motion-toggle hidden>미리보기 정지</button></div>
+    <div class="research-grid">
+      <article class="research-entry"><video class="motion-cover research-visual" data-src="assets/research/kmpl-cover.mp4" poster="assets/research/kmpl-cover.webp" preload="none" muted loop playsinline aria-hidden="true"></video><div class="research-copy">
+        <span class="research-kind">다중 UAV 항법</span><h3>밀집 장애물 속 UAV 경로계획</h3>
+        <p>선회율 제한이 있을 때 Reactive APF와 KMPL의 기체별 궤적이 어떻게 달라지는지 살펴봅니다.</p>
+        <div class="work-links"><a href="kmpl-3d.html">연구 상세 · 3D 데모 ↗</a></div>
+      </div></article>
+      <article class="research-entry"><video class="motion-cover research-visual" data-src="assets/research/wildfire-talk-cover.mp4" poster="assets/research/wildfire-talk-demo.webp" preload="none" muted loop playsinline aria-hidden="true"></video><div class="research-copy">
+        <span class="research-kind">컴퓨터 비전</span><h3>드론 영상 다중 화점 추적</h3>
+        <p>하나의 화점에 번호가 계속 새로 붙는 문제를 다룹니다. 녹지 영상의 전체 생성 ID 수가 16개에서 4개로 줄어든 연구 성과를 확인하세요.</p>
+        <div class="work-links"><a href="wildfire-tracks.html">연구 상세 · 영상 데모 ↗</a></div>
+      </div></article>
+      <article class="research-entry"><div class="research-film"><video class="motion-cover research-visual" data-src="assets/research/imps-cover.mp4" poster="assets/research/imps-cover.webp" preload="none" muted loop playsinline aria-hidden="true"></video><div class="film-caption"><span>임무계획 → 타임라인 → 3D 시뮬레이션</span><span>원본 시연 영상 발췌</span></div></div><div class="research-copy">
+        <span class="research-kind">국방 AI</span><h3>AI 기반 항공임무 계획</h3>
+        <p>IMPS의 임무계획·비행 시뮬레이션부터 ATO-ACCEL의 명령서 생성·검증·브리핑까지, 두 프로토타입의 실제 화면을 살펴보세요.</p>
+        <div class="work-links"><a href="imps-record.html">IMPS · ATO-ACCEL 보기 ↗</a></div>
+      </div></article>
+      <article class="research-entry"><div class="research-film"><video class="motion-cover research-visual" data-src="assets/research/agriculture-cover.mp4" poster="assets/research/agriculture-cover.webp" preload="none" muted loop playsinline aria-hidden="true"></video><div class="film-caption"><span>기준 방식 · CBAM + 다중 스케일</span><span>실제 탐지 기록 · 선정 2개 사례</span></div></div><div class="research-copy">
+        <span class="research-kind">강화학습</span><h3>정밀농업 UAV 탐색</h3>
+        <p>잡초가 모여 있는 환경에서 UAV는 어디부터 탐색할까요? 저장된 두 사례의 좌표를 재생하며 기준 방식과 다중 스케일 어텐션 방식의 경로를 비교합니다.</p>
+        <div class="work-links"><a href="agriculture-paths.html">연구 상세 · 경로 재생 ↗</a></div>
+      </div></article>
     </div>
   </section>
 
+  <section id="pub" class="reveal">
+    <div class="section-title"><h2>논문과 발표</h2><p>연구의 근거와 기록을 확인하세요.</p></div>
+
+    <div class="subgrp">Journal Articles</div>
+    <div class="pub" id="paper-agriculture"><div class="n">J1</div><div><div class="t">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026<br><a href="https://doi.org/10.9709/JKSS.2026.35.1.079">DOI 10.9709/JKSS.2026.35.1.079</a></div></div></div>
+    <div class="pub"><div class="n">J2</div><div><div class="t">WSN에서 중복 면적 최소화를 이용한 격자 맵 기반의 빅홀 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국통신학회논문지 · 46(10), 1658–1666 · 2021</div></div></div>
+    <div class="pub" id="paper-imps"><div class="n">J3</div><div><div class="t">유무인 복합운용 임무계획 시뮬레이션의 교차모듈 정합성 점검<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span>, 윤동원, 민정기</div><div class="v">한국시뮬레이션학회 논문지 · 투고</div></div></div>
+    <div class="pub" id="paper-kmpl"><div class="n">J4</div><div><div class="t">Reactive Avoidance Failure Boundaries and Predictive Local Planning for Turn-Rate-Constrained UAVs: A Density–Dynamics Operating Map<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">Drones (MDPI, SCIE) · 투고</div></div></div>
+    <div class="pub"><div class="n">J5</div><div><div class="t">홀로그래픽 레이더 지뢰 인식의 미지 환경 일반화 분석<span class="badge">게재 예정</span></div><div class="a">임철희, <span class="me">김도윤</span>, 조진혁, 백준기</div><div class="v">대한전자공학회 논문지 · 투고 완료 · 게재 예정</div></div></div>
+
+    <div class="subgrp">Conference Presentations</div>
+    <div class="pub mini" id="paper-wildfire"><div class="n">C1</div><div><div class="t">드론 기반 산불 영상에서 다중 화점의 식별자 연속성 향상을 위한 검출 상자 병합 및 데이터 연관 기준 완화</div><div class="a"><span class="me">김도윤</span>, 박경필, 김동빈</div><div class="v">한국산불학회 추계학술대회 · 2026</div></div></div>
+    <div class="pub mini"><div class="n">C2</div><div><div class="t">시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정<span class="badge award">최우수논문상</span></div><div class="a">장진섭, 심현철, 한동훈, 김상희, <span class="me">김도윤</span>, 임철희, 이상승</div><div class="v">한국인터넷정보학회 추계학술발표대회 · 2025</div></div></div>
+    <div class="pub mini"><div class="n">C3</div><div><div class="t">군사환경 적응형 다중 UAV 경로계획 시스템</div><div class="a"><span class="me">김도윤</span>, 이동환, 박범근, 김상희, 박새찬, 장진섭, 이상승</div><div class="v">한국인터넷정보학회 추계학술발표대회 · 2025</div></div></div>
+    <div class="pub mini"><div class="n">C4</div><div><div class="t">K-RMF 내 애자일 SW개발모델 적용 제안</div><div class="a"><span class="me">김도윤</span>, 박상철, 이명락</div><div class="v">한국군사과학기술학회 추계학술대회 · 2024</div></div></div>
+    <div class="pub mini"><div class="n">C5</div><div><div class="t">WSN의 Big Hole 최소화를 위한 격자 맵 기반의 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국군사과학기술학회 종합학술대회 · 2020</div></div></div>
+
+    <div class="summary">KCI 등재지 2건 게재, 1건 게재 예정, 1건 심사 중 · 국제저널(SCIE) 1건 심사 중 · 국내 학술대회 5건</div>
+  </section>
+
   <section id="activities" class="reveal">
-    <div class="sec-label">Activities</div>
+    <div class="section-title"><h2>연구를 나누는 자리</h2><p>발표와 교류, 현장에서의 기록입니다.</p></div>
     <div class="gallery">
-      <div class="gitem"><img src="assets/activity/talk_conf2026.jpg" alt="항공우주무기체계 기술발전 컨퍼런스 2026 발표" loading="lazy"><div class="cap"><b>항공우주무기체계 기술발전 컨퍼런스 2026</b>「AI 기반 지능형 항공임무 계획 시스템 연구」 발표 · 2026.07</div></div>
-      <div class="gitem"><img src="assets/activity/talk_forum2025.jpg" alt="2025 국방 AI 생태계 발전 포럼 성과발표" loading="lazy"><div class="cap"><b>2025 국방 AI 생태계 발전 포럼</b>강화학습 기반 UAV 경로계획 최적화 연구 성과발표 · 2025</div></div>
-      <div class="gitem"><img src="assets/activity/award_seosan.jpg" alt="서산 시민 혁신 아이디어 공모전 우수상 수상" loading="lazy"><div class="cap"><b>서산 시민 혁신 아이디어 공모전</b>우수상 수상 (서산 침수 안심지도) · 2026<br><a href="https://cc.newdaily.co.kr/site/data/html/2026/09/15/2026091500018.html" target="_blank" rel="noopener">관련 기사 →</a></div></div>
-      <div class="gitem"><img src="assets/activity/award_chungnam_binjip.jpg" alt="충청남도 AI 기본사회 정책 아이디어 공모전 우수상 수상작 빈집 맡기기 구성도" loading="lazy"><div class="cap"><b>충청남도 AI 기본사회 정책 아이디어 공모전</b>우수상 수상 (빈집 맡기기) · 2026<br><a href="assets/binjip_overview.pdf" target="_blank" rel="noopener">구성도 보기 →</a></div></div>
+      <div class="gitem"><img src="assets/activity/talk_conf2026.jpg" alt="항공우주무기체계 기술발전 컨퍼런스 2026 발표" loading="lazy" width="1200" height="675"><div class="cap"><b>항공우주무기체계 기술발전 컨퍼런스 2026</b>「AI 기반 지능형 항공임무 계획 시스템 연구」 발표 · 2026.07</div></div>
+      <div class="gitem"><img src="assets/activity/talk_forum2025.jpg" alt="2025 국방 AI 생태계 발전 포럼 성과발표" loading="lazy" width="1200" height="900"><div class="cap"><b>2025 국방 AI 생태계 발전 포럼</b>강화학습 기반 UAV 경로계획 최적화 연구 성과발표 · 2025</div></div>
+      <div class="gitem"><img src="assets/activity/award_seosan.jpg" alt="서산 시민 혁신 아이디어 공모전 우수상 수상" loading="lazy" width="1200" height="675"><div class="cap"><b>서산 시민 혁신 아이디어 공모전</b>우수상 수상 (서산 침수 안심지도) · 2026<br><a href="https://cc.newdaily.co.kr/site/data/html/2026/09/15/2026091500018.html" target="_blank" rel="noopener">관련 기사 →</a></div></div>
     </div>
   </section>
 
@@ -346,28 +473,9 @@
     </div>
   </section>
 
-  <section id="pub" class="reveal">
-    <div class="sec-label">Publications</div>
-
-    <div class="subgrp">Journal Articles</div>
-    <div class="pub"><div class="n">J1</div><div><div class="t">다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">한국시뮬레이션학회 논문지 · 35(1), 79–93 · 2026<br>DOI 10.9709/JKSS.2026.35.1.079</div></div></div>
-    <div class="pub"><div class="n">J2</div><div><div class="t">WSN에서 중복 면적 최소화를 이용한 격자 맵 기반의 빅홀 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국통신학회논문지 · 46(10), 1658–1666 · 2021</div></div></div>
-    <div class="pub"><div class="n">J3</div><div><div class="t">유무인 복합운용 임무계획 시뮬레이션의 교차모듈 정합성 점검<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span>, 윤동원, 민정기</div><div class="v">한국시뮬레이션학회 논문지 · 투고</div></div></div>
-    <div class="pub"><div class="n">J4</div><div><div class="t">Reactive Avoidance Failure Boundaries and Predictive Local Planning for Turn-Rate-Constrained UAVs: A Density–Dynamics Operating Map<span class="badge">심사 중</span></div><div class="a"><span class="me">김도윤</span>, 박종후, 박상철</div><div class="v">Drones (MDPI, SCIE) · 투고</div></div></div>
-    <div class="pub"><div class="n">J5</div><div><div class="t">홀로그래픽 레이더 지뢰 인식의 미지 환경 일반화 분석<span class="badge">심사 중</span></div><div class="a">임철희, <span class="me">김도윤</span>, 조진혁, 백준기</div><div class="v">대한전자공학회 논문지 · 투고</div></div></div>
-
-    <div class="subgrp">Conference Presentations</div>
-    <div class="pub mini"><div class="n">C1</div><div><div class="t">드론 기반 산불 영상에서 다중 화점의 식별자 연속성 향상을 위한 검출 상자 병합 및 데이터 연관 기준 완화</div><div class="a"><span class="me">김도윤</span>, 박경필, 김동빈</div><div class="v">한국산불학회 추계학술대회 · 2026</div></div></div>
-    <div class="pub mini"><div class="n">C2</div><div><div class="t">시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정<span class="badge award">최우수논문상</span></div><div class="a">장진섭, 심현철, 한동훈, 김상희, <span class="me">김도윤</span>, 임철희, 이상승</div><div class="v">한국인터넷정보학회 추계학술발표대회 · 2025</div></div></div>
-    <div class="pub mini"><div class="n">C3</div><div><div class="t">군사환경 적응형 다중 UAV 경로계획 시스템</div><div class="a"><span class="me">김도윤</span>, 이동환, 박범근, 김상희, 박새찬, 장진섭, 이상승</div><div class="v">한국인터넷정보학회 추계학술발표대회 · 2025</div></div></div>
-    <div class="pub mini"><div class="n">C4</div><div><div class="t">K-RMF 내 애자일 SW개발모델 적용 제안</div><div class="a"><span class="me">김도윤</span>, 박상철, 이명락</div><div class="v">한국군사과학기술학회 추계학술대회 · 2024</div></div></div>
-    <div class="pub mini"><div class="n">C5</div><div><div class="t">WSN의 Big Hole 최소화를 위한 격자 맵 기반의 자가복구 기법</div><div class="a"><span class="me">김도윤</span>, 이민우, 임재성</div><div class="v">한국군사과학기술학회 종합학술대회 · 2020</div></div></div>
-
-    <div class="summary">KCI 등재지 2건 게재, 2건 심사 중 · 국제저널(SCIE) 1건 심사 중 · 국내 학술대회 5건</div>
-  </section>
 
   <section id="exp" class="reveal">
-    <div class="sec-label">Experience</div>
+    <div class="section-title"><h2>연구와 실무 경험</h2></div>
     <div class="row"><div class="when">2026</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">최우수연구상</span></div><div class="desc">상반기 · AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구</div></div></div>
     <div class="row"><div class="when">2026</div><div><div class="head">인공지능 역량강화 교육 교관</div><div class="desc">LLM 활용 · 강화학습 · 국방 AI · 빅데이터 분야 교육<br>(군수사, 서산기지 대상)</div></div></div>
     <div class="row"><div class="when">2025</div><div><div class="head">항공무기체계 SW 학술연구 연구팀장<span class="badge award">우수연구상</span></div><div class="desc">상반기 · 공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석</div></div></div>
@@ -375,17 +483,17 @@
 
   <!-- ===== AWARDS ===== -->
   <section id="awards" class="reveal">
-    <div class="sec-label">Awards &amp; Honors</div>
+    <div class="section-title"><h2>주요 수상 이력</h2></div>
     <div class="row"><div class="when">2026</div><div><div class="head">우수군수인 항공정비기술관리자 부문 최우수<span class="badge award">참모총장상</span></div><div class="desc">2026.11</div></div></div>
-    <div class="row"><div class="when">2026</div><div><div class="head">최우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">KAIST 총장상</div><div class="desc">군 특화 AI 과정 (AI/SW 프로젝트 과정) 최우수 이수 · KAIST 주관</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">최우수 논문상</div><div class="desc">한국인터넷정보학회 추계학술대회 · 국방전산정보원장상<br>「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」<br>공동연구(공저)</div></div></div>
-    <div class="row"><div class="when">2025</div><div><div class="head">우수연구상</div><div class="desc">항공무기체계 SW 학술연구<br>공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">항공무기체계 SW 학술연구 최우수</div><div class="desc">AI 모델을 활용한 항공기 임무계획 보조 프로그램 연구 (공군 항공SW지원소)</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">군 특화 AI 과정 최우수<span class="badge award">KAIST 총장상</span></div><div class="desc">AI/SW 프로젝트 과정 · KAIST 주관</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">한국인터넷정보학회 추계학술대회 논문 부문 최우수<span class="badge award">국방전산정보원장상</span></div><div class="desc">「시각 패턴 보상을 통한 GPS 음영지역 드론의 위치 표류 조정」<br>공동연구(공저)</div></div></div>
+    <div class="row"><div class="when">2025</div><div><div class="head">항공무기체계 SW 학술연구 우수</div><div class="desc">공대지 무장 알고리즘에 적용 가능한 최신 AI 모델 비교 분석 (공군 항공SW지원소)</div></div></div>
   </section>
 
   <!-- ===== TALKS ===== -->
   <section id="talks" class="reveal">
-    <div class="sec-label">Talks &amp; Presentations</div>
+    <div class="section-title"><h2>발표 자료</h2></div>
     <div class="row"><div class="when">2026</div><div><div class="head">항공우주무기체계 기술발전 컨퍼런스 2026</div><div class="desc">「AI 기반 지능형 항공임무 계획 시스템 연구」 발표<br>2026.07 · 대전 DCC · 공군 등 5개 기관 공동주최</div>
       <div class="links">
         <a class="rlink" href="assets/IMPS_briefing.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>발표자료 (PDF)</a>
@@ -396,7 +504,7 @@
   </section>
 
   <section id="comp" class="reveal">
-    <div class="sec-label">Competitions</div>
+    <div class="section-title"><h2>공모전</h2></div>
     <div class="row"><div class="when">2026</div><div><div class="head">충청남도 AI 기본사회 정책 아이디어 공모전</div><div class="desc">충청남도 주관<br>주제: 빈집 맡기기, 팔지도 허물지도 않고 AI가 계산해 도가 관리하는 충남 빈집</div><span class="pill">우수상</span>
       <div class="links">
         <a class="rlink" href="assets/binjip_overview.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>구성도 (PDF)</a>
@@ -407,12 +515,12 @@
         <a class="rlink" href="https://youtu.be/B9IvDbeuuik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>시스템 시연</a>
       </div>
       <div class="note">* 본 자료는 모두 인터넷에 공개된 데이터로만 작성된 자료입니다.</div></div></div>
-    <div class="row"><div class="when">2026</div><div><div class="head">제6차 Future Makers Challenge 공모전</div><div class="desc">공군본부 주관<br>주제: AI 기반 활주로 위협요소 통합 안전운영 플랫폼 구축</div><span class="pill">우수상</span></div></div>
+    <div class="row"><div class="when">2026</div><div><div class="head">제6차 Future Makers Challenge 공모전</div><div class="desc">공군본부 주관<br>주제: AI 기반 활주로 위협요소 통합 안전운영 플랫폼 구축</div><span class="pill">우수상</span><div class="links"><a class="rlink" href="https://runway-threat-platform.vercel.app/" target="_blank" rel="noopener noreferrer">시연 데모 열기 ↗</a></div></div></div>
     <div class="row"><div class="when">2026</div><div><div class="head">서산 시민 혁신 아이디어 공모전</div><div class="desc">충남 서산시 주관<br>주제: 기상예보·AI 기반 침수 위험 예측 히트맵 「서산 침수 안심지도」 구축</div><span class="pill">우수상</span></div></div>
   </section>
 
   <section id="edu" class="reveal">
-    <div class="sec-label">Education</div>
+    <div class="section-title"><h2>학력과 교육</h2></div>
     <div class="subgrp">Academic</div>
     <div class="row"><div class="when">2026</div><div><div class="head">아주대학교 국방디지털융합학과 박사 수료</div></div></div>
     <div class="row"><div class="when">2021</div><div><div class="head">아주대학교 국방디지털융합학과 학사</div></div></div>
@@ -428,7 +536,7 @@
   </section>
 
   <section id="cert" class="reveal">
-    <div class="sec-label">Certifications</div>
+    <div class="section-title"><h2>자격</h2></div>
     <div class="chips">
       <span class="chip">정보처리기사 <span class="d">2020.12</span></span>
       <span class="chip">빅데이터분석기사 <span class="d">2021.12</span></span>
@@ -439,14 +547,14 @@
   </section>
 
   <section id="contact" class="reveal">
-    <div class="sec-label">Contact</div>
+    <div class="section-title"><h2>연구에 관한 대화를 기다립니다.</h2></div>
     <div class="contact-row">
       <a class="cbtn" href="mailto:ksain980809@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ksain980809@gmail.com</a>
       <a class="cbtn" href="https://github.com/dodo-port" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>GitHub</a>
     </div>
     <div class="foot">© 2026 김도윤 (Kim Do-Yoon) · Defense Aviation SW &amp; AI Research</div>
   </section>
-</div>
+</main>
 
 <script>
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -462,22 +570,12 @@
     });
   })();
 
-  /* cursor spotlight */
-  (function(){
-    if(reduce)return;
-    var sp=document.querySelector('.spotlight');if(!sp)return;
-    window.addEventListener('mousemove',function(e){
-      sp.style.setProperty('--mx',e.clientX+'px');
-      sp.style.setProperty('--my',e.clientY+'px');
-    },{passive:true});
-  })();
 
-  /* scroll reveal */
-  (function(){
-    if(reduce)return;
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}});},{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  })();
+
+
+  document.querySelector('.nav-more').addEventListener('click', function(event){
+    if(event.target.closest('a')) this.open = false;
+  });
 
   /* scrollspy */
   (function(){
@@ -493,49 +591,8 @@
     window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   })();
 
-  /* UAV swarm hero animation, cursor-interactive (센싱·회피·깊이감) */
-  (function(){
-    if(reduce)return;
-    var cv=document.getElementById('swarm'),ctx=cv.getContext('2d'),W,H,DPR=Math.min(window.devicePixelRatio||1,2),nodes=[];
-    var mx=-999,my=-999,tmx=-999,tmy=-999,active=false,R=140;
-    function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
-    function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-    function init(){
-      size();
-      var n=Math.max(14,Math.min(32,Math.round(W/32)));nodes=[];
-      for(var i=0;i<n;i++){nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.26,vy:(Math.random()-.5)*.26,z:Math.random()});}
-    }
-    function step(){
-      var c=css('--swarm')||'47,86,208',i,j,k;
-      if(active){mx+=(tmx-mx)*0.12;my+=(tmy-my)*0.12;}
-      ctx.clearRect(0,0,W,H);
-      // 위치 갱신 (기본 표류 + 커서 회피, 가까운 노드일수록 강하게)
-      for(i=0;i<nodes.length;i++){
-        var p=nodes[i];p.x+=p.vx;p.y+=p.vy;
-        if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-        if(active){var dx=p.x-mx,dy=p.y-my,dm=Math.sqrt(dx*dx+dy*dy)||1;
-          if(dm<R){var f=(1-dm/R)*(0.6+p.z*0.9);p.x+=dx/dm*f;p.y+=dy/dm*f;}}
-      }
-      // 노드 간 연결선
-      for(i=0;i<nodes.length;i++){var a=nodes[i];
-        for(j=i+1;j<nodes.length;j++){var b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<118){ctx.strokeStyle='rgba('+c+','+(0.15*(1-d/118))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}}
-      // 커서 센싱 연결선 + 커서 노드
-      if(active){
-        for(i=0;i<nodes.length;i++){var q=nodes[i],dx=q.x-mx,dy=q.y-my,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<R){ctx.strokeStyle='rgba('+c+','+(0.34*(1-d/R))+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(q.x,q.y);ctx.lineTo(mx,my);ctx.stroke();}}
-        ctx.fillStyle='rgba('+c+',.85)';ctx.beginPath();ctx.arc(mx,my,2.4,0,6.2832);ctx.fill();
-      }
-      // 노드 (깊이별 크기·밝기)
-      for(k=0;k<nodes.length;k++){var nd=nodes[k];ctx.fillStyle='rgba('+c+','+(0.4+nd.z*0.4)+')';ctx.beginPath();ctx.arc(nd.x,nd.y,1.3+nd.z*1.6,0,6.2832);ctx.fill();}
-      requestAnimationFrame(step);
-    }
-    function moved(cx,cy){var r=cv.getBoundingClientRect();tmx=cx-r.left;tmy=cy-r.top;if(!active){mx=tmx;my=tmy;}active=(tmx>-20&&tmx<W+20&&tmy>-20&&tmy<H+20);}
-    window.addEventListener('mousemove',function(e){moved(e.clientX,e.clientY);},{passive:true});
-    window.addEventListener('mouseout',function(){active=false;});
-    var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(init,200);});
-    init();step();
-  })();
 </script>
+<script src="assets/research/motion-covers.js"></script>
+<script src="assets/research/portfolio-flow.js"></script>
 </body>
 </html>

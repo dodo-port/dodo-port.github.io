@@ -1,0 +1,1 @@
+(() => {const video=document.getElementById('impsPresentation');if(!video)return;document.querySelectorAll('[data-video-seek]').forEach(button=>{button.addEventListener('click',()=>{video.currentTime=Number(button.dataset.videoSeek);video.play().catch(()=>{});});});})();

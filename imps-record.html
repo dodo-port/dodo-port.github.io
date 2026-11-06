@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IMPS · ATO-ACCEL 연구 성과 · 김도윤</title><link rel="stylesheet" href="assets/research/demo.css"><link rel="stylesheet" href="assets/research/research-detail.css"></head>
+<body><main>
+<a href="index.html#research">← 대표 연구로</a>
+<header class="study-header">
+      <div class="kicker">RESEARCH / 03</div>
+      <h1>AI 기반 항공임무 계획</h1>
+      <p>항공임무 계획을 지원하는 두 프로토타입을 소개합니다. IMPS는 계획과 비행 시뮬레이션을, ATO-ACCEL은 항공임무명령서의 생성·검증·브리핑 흐름을 다룹니다.</p>
+      <nav class="study-nav" aria-label="연구 상세 메뉴"><a href="#algorithm">시스템 흐름도</a><a href="#demo">IMPS 시연</a><a href="#ato">ATO-ACCEL</a><a href="#publication">관련 논문·발표</a></nav>
+    </header>
+<section class="study-section public-flow" id="algorithm" aria-labelledby="algorithm-title"><h2 id="algorithm-title">시스템 흐름도</h2><p>임무 요구를 계획과 검토, 시각화로 연결하는 연구입니다.</p><ol class="flow-steps" aria-label="연구의 주요 흐름"><li><strong>임무 요구 입력</strong><p>계획 수립에 필요한 조건 정리</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>계획 수립 지원</strong><p>임무계획과 명령서 작성 지원</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>결과 검토</strong><p>계획과 출력 결과 확인</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>시각화·브리핑</strong><p>시연 화면으로 결과 전달</p></li></ol><div class="flow-footer"><span>연구 개념 요약</span><a href="#demo">데모로 살펴보기 ↓</a></div></section>
+
+<section class="study-section" id="demo">
+<h2>IMPS · 계획에서 비행까지</h2>
+<p>시연의 관찰 포인트는 화면 사이의 연결입니다. 임무계획 화면의 경로를 확인하고, 타임라인에서 시간별 진행을 살펴본 뒤, 3D 시뮬레이션에서 비행 모습을 확인할 수 있습니다.</p>
+<div class="panel presentation-video"><video id="impsPresentation" src="assets/research/imps-presentation.mp4" poster="assets/research/imps-cover.webp" controls playsinline preload="metadata" aria-label="IMPS 원본 시스템 시연 영상"></video></div>
+<div class="video-chapters" aria-label="시연 영상 주요 장면"><button type="button" data-video-seek="0">처음부터</button><button type="button" data-video-seek="13">임무계획 화면</button><button type="button" data-video-seek="38">작전 타임라인</button><button type="button" data-video-seek="65">3D 시뮬레이션</button><button type="button" data-video-seek="93">비행 시점</button></div>
+<p class="fine">발표용 원본 「IMPS 영상.mp4」를 웹 재생용으로 변환했습니다. 메인 미리보기는 원본의 일부 구간이며, 여기에서는 전체 영상을 볼 수 있습니다.</p>
+</section>
+<section class="study-section" id="ato">
+<h2>ATO-ACCEL · 명령서 작성에서 검증과 브리핑까지</h2>
+<p>항공임무명령서(ATO)의 기획·분석·브리핑 과정을 지원하는 프로토타입입니다. 발표자료에서는 입력 → 생성 → 분석 → 시각화 → 브리핑의 흐름으로 소개합니다. 아래는 원본 시연에서 추출한 실제 시스템 화면입니다.</p>
+<div class="ato-gallery"><figure><a href="assets/research/ato-planning.webp" target="_blank" rel="noopener"><img src="assets/research/ato-planning.webp" width="1600" height="867" alt="ATO-ACCEL 임무 입력 및 계획 화면, 클릭하면 원본 크기로 열림" loading="lazy"></a><figcaption><strong>입력과 계획 화면</strong><span>명령 입력과 계획 결과를 한 화면에서 확인합니다. 클릭하여 크게 보기.</span></figcaption></figure><figure><a href="assets/research/ato-validation.webp" target="_blank" rel="noopener"><img src="assets/research/ato-validation.webp" width="1600" height="867" alt="ATO-ACCEL 검증 결과와 명령서 출력 화면, 클릭하면 원본 크기로 열림" loading="lazy"></a><figcaption><strong>검증 결과와 명령서 출력</strong><span>검증 항목과 생성된 ATO 메시지를 확인합니다. 클릭하여 크게 보기.</span></figcaption></figure></div>
+<div class="panel presentation-video"><video src="assets/research/ato-presentation.mp4" poster="assets/research/ato-planning.webp" controls playsinline preload="none" aria-label="ATO-ACCEL 전체 시스템 시연"></video></div>
+<p class="fine">ATO-ACCEL 원본 시연 영상과 발표자료를 사용했습니다. 화면 속 시나리오와 수치는 시연 사례이며 실제 작전 성과를 나타내지 않습니다.</p>
+<p class="study-links"><a href="assets/ATO-ACCEL_briefing.pdf">ATO-ACCEL 발표자료 PDF 보기 ↗</a></p>
+</section>
+<section class="study-publication" id="publication" aria-labelledby="publication-title">
+      <h2 id="publication-title">관련 논문·발표</h2>
+      <div class="study-citation">
+        <p class="study-kind">투고 원고 · 공개 브리핑</p>
+        <h3>유무인 복합운용 임무계획 시뮬레이션의 교차모듈 정합성 점검</h3>
+        <p>김도윤, 윤동원, 민정기</p>
+        <p class="study-links"><a href="index.html#paper-imps">논문 목록에서 보기 ↗</a></p>
+        <p class="study-links"><a href="assets/IMPS_briefing.pdf">IMPS 브리핑 PDF ↗</a> · <a href="assets/ATO-ACCEL_briefing.pdf">ATO-ACCEL 브리핑 PDF ↗</a></p>
+      </div>
+      <p class="study-links"><a href="index.html#research">다른 연구 보기 →</a></p>
+    </section>
+    </main><script src="assets/research/presentation-video.js"></script></body></html>

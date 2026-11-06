@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KMPL 3D 궤적 · 김도윤</title><link rel="stylesheet" href="assets/research/demo.css"><link rel="stylesheet" href="assets/research/research-detail.css"></head>
+<body><main>
+<a href="index.html#research">← 대표 연구로</a>
+<header class="study-header">
+      <div class="kicker">RESEARCH / 01</div>
+      <h1>밀집 장애물 속 다중 UAV 항법</h1>
+      <p>무인기의 선회율에 제한이 있으면, 장애물을 감지한 뒤 피하는 반응형 회피는 상황에 따라 제때 방향을 바꾸기 어렵습니다. 이 연구는 Reactive APF와 짧은 구간의 움직임을 예측하는 KMPL을 같은 조건에서 비교합니다.</p>
+      <nav class="study-nav" aria-label="연구 상세 메뉴"><a href="#algorithm">알고리즘 흐름도</a><a href="#demo">데모 보기</a><a href="#publication">관련 논문·발표</a></nav>
+    </header>
+<section class="study-section public-flow" id="algorithm" aria-labelledby="algorithm-title"><h2 id="algorithm-title">알고리즘 흐름도</h2><p>기체의 움직임을 고려하며 장애물 사이의 경로를 탐색합니다.</p><ol class="flow-steps" aria-label="연구의 주요 흐름"><li><strong>비행 상황 파악</strong><p>기체 상태와 주변 장애물 확인</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>이동 가능성 검토</strong><p>기체의 움직임 제약 고려</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>경로 선택</strong><p>목표 방향과 회피 경로 검토</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>비행 결과 확인</strong><p>다중 UAV 궤적 비교</p></li></ol><div class="flow-footer"><span>연구 개념 요약</span><a href="#demo">데모로 살펴보기 ↓</a></div></section>
+
+    <div class="study-section" id="demo">
+      <h2>3D 궤적 데모</h2><p>알고리즘과 기체를 고르고 같은 스텝에서 비교하세요. 아래 궤적은 시연 스크립트를 재실행한 단일 시나리오입니다.</p>
+    </div>
+<section class="panel" aria-label="KMPL 3D 탐색기">
+<div class="bar">
+<label>알고리즘 <select id="run"><option value="1">KMPL</option><option value="0">Reactive APF</option></select></label>
+<label>기체 <select id="vehicle"><option value="-1">전체 기체</option></select></label>
+<label><input type="checkbox" id="obstacles" checked> 장애물</label>
+<button type="button" id="top">위에서 보기</button><button type="button" id="reset">시점 초기화</button><button type="button" id="zoomOut" aria-label="축소">−</button><button type="button" id="zoomIn" aria-label="확대">+</button>
+</div>
+<canvas id="scene" class="viewer" tabindex="0" aria-label="3D 궤적. 드래그 또는 방향키로 회전, 휠 또는 더하기와 빼기 키로 확대."></canvas>
+<div class="bar">
+<button class="primary" id="play" type="button">재생</button>
+<input type="range" id="step" min="0" max="400" value="0" aria-label="시뮬레이션 스텝">
+<output id="stepText" for="step"></output>
+</div>
+<div class="bar stats" id="stats"></div>
+</section>
+<p class="fine">드래그로 회전 · 휠로 확대 · 기체 선택으로 궤적 강조. 초록은 도달, 빨강은 충돌 예산 초과로 정지, 파랑은 진행 중입니다.</p>
+<p class="fine" id="source">출처: KMPL의 3D 시연 스크립트에서 재실행해 추출한 단일 시나리오입니다. <a href="replay.html">기존 영상 비교</a></p>
+<noscript><p>3D 궤적을 보려면 JavaScript를 켜 주세요.</p></noscript>
+<section class="study-publication" id="publication" aria-labelledby="publication-title">
+      <h2 id="publication-title">관련 논문·발표</h2>
+      <div class="study-citation">
+        <p class="study-kind">투고 원고 · 홈페이지 기재</p>
+        <h3>Reactive Avoidance Failure Boundaries and Predictive Local Planning for Turn-Rate-Constrained UAVs: A Density–Dynamics Operating Map</h3>
+        <p>김도윤, 박종후, 박상철</p>
+        <p class="study-links"><a href="index.html#paper-kmpl">논문 목록에서 보기 ↗</a></p>
+
+      </div>
+      <p class="study-links"><a href="index.html#research">다른 연구 보기 →</a></p>
+    </section>
+    </main><script src="assets/research/kmpl-trace.js"></script><script src="assets/research/kmpl-viewer.js"></script></body></html>

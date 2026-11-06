@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정밀농업 UAV 탐색 경로 · 김도윤</title>
+<style>
+  :root{color-scheme:dark;--bg:#0d1422;--panel:#151f30;--line:#303e54;--ink:#eff4ff;--muted:#b3bfd2;--accent:#a9c5ff;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,"Malgun Gothic",sans-serif;}
+  main{max-width:1180px;margin:auto;padding:clamp(20px,5vw,70px) clamp(16px,5vw,56px);}
+  a{color:var(--accent);text-underline-offset:4px;}
+  .home{font-size:14px;}
+  header{margin:28px 0;}
+  .label{color:var(--accent);font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.16em;}
+  h1{font-size:clamp(31px,5.6vw,66px);letter-spacing:-.055em;line-height:1.12;margin:12px 0;word-break:keep-all;}
+  p{margin:0;color:var(--muted);word-break:keep-all;}
+  .player{border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;}
+  .toolbar,.transport,.chapters{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 16px;}
+  .toolbar{justify-content:space-between;}
+  .toolbar strong{font-size:14px;}
+  .modes{display:flex;gap:5px;flex-wrap:wrap;}
+  button{font:inherit;font-size:13px;font-weight:700;cursor:pointer;border-radius:8px;border:1px solid var(--line);color:var(--ink);background:#202c40;padding:7px 12px;min-height:40px;}
+  button:hover{background:#30415d;}
+  button[aria-pressed="true"],#play{background:#a9c5ff;color:#102040;border-color:#a9c5ff;}
+  :focus-visible{outline:2px solid #82e7e3;outline-offset:3px;}
+  .screen{overflow:hidden;background:white;}
+  video{display:block;width:100%;height:auto;max-width:none;}
+  .screen:not([data-view="both"]){max-width:650px;margin-inline:auto;}
+  .screen[data-view="apf"] video,.screen[data-view="kmpl"] video{width:200%;}
+  .screen[data-view="kmpl"] video{transform:translateX(-50%);}
+  .transport{border-top:1px solid var(--line);}
+  .transport input{min-width:70px;flex:1;accent-color:var(--accent);cursor:pointer;}
+  output{font:600 13px/1.2 ui-monospace,monospace;white-space:nowrap;color:var(--muted);}
+  .chapters{padding-top:0;}
+  .chapters span{color:var(--muted);font-size:13px;margin-right:4px;}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:15px;font-size:13px;}
+  [hidden]{display:none!important;}
+
+  .figure-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);align-items:start;}
+  .figure-image{display:grid;place-items:center;min-width:0;background:#fff;}
+  .figure-image svg{display:block;width:100%;max-height:590px;}
+  .figure-guide{padding:clamp(18px,3vw,32px);}
+  .figure-guide h2{font-size:clamp(20px,3vw,27px);margin:8px 0;letter-spacing:-.04em;}
+  .figure-guide p{font-size:15px;}
+  .foot{justify-content:flex-start;gap:12px 20px;}
+  @media(max-width:740px){.figure-grid{grid-template-columns:minmax(0,1fr);}.figure-image svg{max-height:440px;}}
+.case-highlight{margin:18px 0;padding:15px 18px;border-left:3px solid #bc4a35;background:var(--panel);color:var(--ink);font-weight:700;}.selection-note{margin-top:16px;color:var(--muted);font-size:14px;}.selection-note summary{cursor:pointer;color:var(--accent);}.selection-note p{margin-top:10px;}
+</style>
+<link rel="stylesheet" href="assets/research/research-detail.css">
+</head>
+<body>
+<main>
+  <a class="home" href="index.html#research">← 대표 연구로</a>
+  <header class="study-header">
+      <div class="kicker">RESEARCH / 04</div>
+      <h1>정밀농업 UAV 탐색 경로</h1>
+      <p>잡초가 고르게 분포하지 않은 농경지에서 무인기가 어느 방향으로 탐색할지 결정하는 연구입니다. 다중 스케일 어텐션을 사용한 방식의 경로를 기준 방식과 비교합니다.</p>
+      <nav class="study-nav" aria-label="연구 상세 메뉴"><a href="#algorithm">알고리즘 흐름도</a><a href="#demo">경로 재생</a><a href="#figure">논문 그림</a><a href="#publication">관련 논문·발표</a></nav>
+    </header>
+<section class="study-section public-flow" id="algorithm" aria-labelledby="algorithm-title"><h2 id="algorithm-title">알고리즘 흐름도</h2><p>주변 관측과 공간 정보를 바탕으로 다음 탐색 방향을 선택합니다.</p><ol class="flow-steps" aria-label="연구의 주요 흐름"><li><strong>환경 관측</strong><p>주변 상황과 탐색 이력 확인</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>공간 정보 해석</strong><p>탐색에 필요한 정보 파악</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>이동 방향 선택</strong><p>다음 탐색 행동 결정</p><svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></li><li><strong>탐색 결과 확인</strong><p>이동 경로와 탐지 결과 비교</p></li></ol><div class="flow-footer"><span>연구 개념 요약</span><a href="#demo">데모로 살펴보기 ↓</a></div></section>
+<section class="study-section" id="demo">
+<h2>같은 환경, 달라지는 탐색 경로</h2>
+<p>왼쪽은 기준 방식, 오른쪽은 CBAM과 다중 스케일 구조를 적용한 방식입니다. 동일 지도·시작점·설정에서 평가한 경로와 탐지 기록을 같은 스텝 기준으로 재생합니다. 한쪽의 기록이 먼저 끝나면 마지막 위치에 머뭅니다.</p>
+<p id="agHighlight" class="case-highlight" aria-live="polite"></p>
+<div class="trajectory-player">
+<div class="trajectory-toolbar"><label for="agEpisode">선정 사례</label><select id="agEpisode"><option value="0">비교 1 · 83%와 97%</option><option value="1">비교 2 · 88%와 93%</option></select><button id="agPlay" type="button">재생</button><button id="agReset" type="button">처음으로</button><label for="agSpeed">재생 속도</label><select id="agSpeed"><option value="15">15 step/s</option><option value="30" selected>30 step/s</option><option value="60">60 step/s</option></select></div>
+<div class="trajectory-switch" role="group" aria-label="모바일 경로 보기"><button type="button" data-ag-view="baseline" aria-pressed="false" aria-controls="agBaseline">기준 방식 경로</button><button type="button" data-ag-view="proposed" aria-pressed="true" aria-controls="agProposed">제안 방식 경로</button></div>
+<div class="trajectory-pair" data-view="proposed"><div><h3>기준 방식</h3><div class="detection-score"><strong id="agBaselineMetric">0.0%</strong><span id="agBaselineCount"></span><small id="agBaselineFinal"></small></div><svg id="agBaseline" viewBox="0 0 520 520" role="img" aria-label="기준 방식의 저장된 탐색 경로"></svg><p id="agBaselineStatus"></p></div><div><h3>연구 성과 · 제안 방식</h3><div class="detection-score"><strong id="agProposedMetric">0.0%</strong><span id="agProposedCount"></span><small id="agProposedFinal"></small></div><svg id="agProposed" viewBox="0 0 520 520" role="img" aria-label="CBAM과 다중 스케일 방식의 저장된 탐색 경로"></svg><p id="agProposedStatus"></p></div></div>
+<div class="trajectory-toolbar"><label for="agTimeline">재생 위치</label><input id="agTimeline" type="range" min="0" max="750" value="0" step="1"><output id="agStep" for="agTimeline">Step 0</output></div>
+</div>
+<p class="fine">회색은 미탐지 잡초, 검은색은 탐지된 잡초, 큰 원은 UAV 위치입니다.</p>
+<p class="fine">30개 비교 평가 중 두 방식 모두 높은 탐지율을 보이면서 차이가 나는 시뮬레이션 사례를 선정했습니다. 색 변화와 탐지율은 실제 기록을 따릅니다. 선정 사례가 전체 평균을 뜻하지는 않습니다.</p>
+<details class="selection-note"><summary>전체 비교 결과 · 선정 기준</summary><p>30개 사례의 최종 탐지율 비교: 연구 방식 우세 15개, 동률 1개, 기준 방식 우세 14개. 사례별 평균 탐지율은 기준 방식 66.2%, 연구 방식 74.8%입니다. 최종 탐지율은 실제 잡초 중 찾아낸 비율이며 오탐은 제외합니다.</p><p>완전 탐지 사례: 기준 방식 0개, 연구 방식 0개. 두 방식 모두 80% 이상 탐지한 사례에서, 차이가 뚜렷한 경우와 작은 경우를 각각 골랐습니다. 새로 실행한 시뮬레이션 결과이며 논문 전체 평가의 재현 결과는 아닙니다.</p></details>
+</section>
+    <div class="study-section" id="figure">
+      <h2>논문 그림 비교</h2><p>공개된 예시 그림에서 각 경로를 확대하거나 같은 좌표에 겹쳐 봅니다.</p>
+    </div>
+  <section class="player" aria-label="정밀농업 UAV 탐색 경로">
+    <div class="toolbar">
+      <strong>보기 선택</strong>
+      <div class="modes" role="group" aria-label="보기 선택"><button type="button" data-box="0 0 1100 322" data-note="왼쪽은 기준 방식, 가운데는 제안 방식, 오른쪽은 두 경로를 같은 좌표 위에 겹친 그림입니다." aria-pressed="true">전체 비교</button><button type="button" data-box="0 0 360 322" data-note="파란 선이 기준 방식의 경로입니다. 검은 점은 그림에 표시된 탐지 위치를 나타냅니다." aria-pressed="false">기준 방식</button><button type="button" data-box="360 0 377 322" data-note="빨간 선이 CBAM과 다중 스케일 구조를 사용한 제안 방식의 경로입니다." aria-pressed="false">제안 방식</button><button type="button" data-box="737 0 363 322" data-note="같은 좌표에서 파란 경로와 빨간 경로가 어느 구간에서 갈라지는지 볼 수 있습니다." aria-pressed="false">경로 겹쳐보기</button></div>
+    </div>
+    <div class="figure-grid">
+      <div class="figure-image">
+        <svg viewBox="0 0 1100 322" role="img" aria-label="공개 홈페이지에 실린 원본 연구 그림">
+          <defs><clipPath id="view-clip"><rect id="view-rect"></rect></clipPath></defs>
+          <image href="assets/research/ms.jpg" width="1100" height="322"></image>
+        </svg>
+      </div>
+      <div class="figure-guide" aria-live="polite">
+        <div class="label">VIEW GUIDE</div>
+        <h2>전체 비교</h2>
+        <p>왼쪽은 기준 방식, 가운데는 제안 방식, 오른쪽은 두 경로를 같은 좌표 위에 겹친 그림입니다.</p>
+      </div>
+    </div>
+  </section>
+  <div class="foot"><a href="assets/research/ms.jpg">원본 그림 ↗</a></div>
+<section class="study-publication" id="publication" aria-labelledby="publication-title">
+      <h2 id="publication-title">관련 논문·발표</h2>
+      <div class="study-citation">
+        <p class="study-kind">게재 논문</p>
+        <h3>다중 스케일 어텐션 메커니즘을 적용한 정밀 농업용 UAV 경로 시뮬레이션 기법 연구</h3>
+        <p>김도윤, 박종후, 박상철 · 한국시뮬레이션학회 논문지 35(1), 79–93</p>
+        <p class="study-links"><a href="https://doi.org/10.9709/JKSS.2026.35.1.079">논문 DOI 열기 ↗</a></p>
+
+      </div>
+      <p class="study-links"><a href="index.html#research">다른 연구 보기 →</a></p>
+    </section>
+    </main>
+<script>
+  const views = document.querySelectorAll('[data-box]');
+  const diagram = document.querySelector('.figure-image svg');
+  const guide = document.querySelector('.figure-guide');
+  for (const view of views) {
+    view.addEventListener('click', () => {
+      diagram.setAttribute('viewBox', view.dataset.box);
+      const rect = diagram.querySelector('#view-rect');
+      const bounds = view.dataset.box.split(' ');
+      ['x', 'y', 'width', 'height'].forEach((key, i) => rect.setAttribute(key, bounds[i]));
+      diagram.querySelector('image').setAttribute('clip-path', 'url(#view-clip)');
+      guide.querySelector('h2').textContent = view.textContent;
+      guide.querySelector('p').textContent = view.dataset.note;
+      for (const button of views) button.setAttribute('aria-pressed', String(button === view));
+    });
+  }
+</script>
+<script src="assets/research/agriculture-trace.js"></script><script src="assets/research/agriculture-player.js"></script></body>
+</html>
